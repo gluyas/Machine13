@@ -35,6 +35,8 @@ struct Cmd
 
 public class GMSPlayer : MonoBehaviour
 {
+    public static GMSPlayer Instance { get; private set; }
+    
     public Transform playerView;                    // Camera
     public Transform user;                          // Player
     public float playerViewYOffset = 0.6f;          // The height at which the camera is bound to
@@ -100,6 +102,11 @@ public class GMSPlayer : MonoBehaviour
     // Player commands, stores wish commands that the player asks for (Forward, back, jump, etc)
     private Cmd _cmd;
 
+    private void Awake()
+    {
+        Instance = this;
+    }
+    
     private void Start()
     {
         // Hide the cursor
@@ -113,7 +120,7 @@ public class GMSPlayer : MonoBehaviour
             transform.position.z);
 
         _controller = GetComponent<CharacterController>();
-}
+    }
 
     private void Update()
     {
