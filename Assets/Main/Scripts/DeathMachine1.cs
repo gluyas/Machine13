@@ -27,9 +27,6 @@ public class DeathMachine1 : MonoBehaviour {
 
             GameObject activebullet = Instantiate(projectileGFX, transform.position, transform.rotation) as GameObject;
             activebullet.transform.rotation = Quaternion.RotateTowards(activebullet.transform.rotation, bulletRot, 90);
-            
-            
-            
 
             Rigidbody activeBulletRB = activebullet.GetComponent<Rigidbody>();
             activeBulletRB.velocity = activebullet.transform.forward * projectileSpeed;

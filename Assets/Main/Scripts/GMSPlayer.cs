@@ -134,7 +134,7 @@ public class GMSPlayer : MonoBehaviour
         /* Ensure that the cursor is locked into the screen */
         if (Cursor.lockState != CursorLockMode.Locked)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
                 Cursor.lockState = CursorLockMode.Locked;
         }
 
@@ -251,16 +251,15 @@ public class GMSPlayer : MonoBehaviour
     /**
      * Excecutes a shotjump if requirements are met
      */
-
     private void ShotJump()
     {
         if (jumpSuccess)
         {
-            bool shotReady = GameObject.Find("Gun").GetComponent<BulletEmitter>().shotReady;
+            bool shotReady = GameObject.Find("Gun").GetComponent<BulletEmitter>().ShotReady;
             shotJumpRemainTime -= 1 * Time.deltaTime;
 
             // When a shotjump is successful
-			if (shotJumpRemainTime > 0 && Input.GetMouseButtonDown (0) && rotX > shotJumpMinAngle && shotReady) {
+			if (shotJumpRemainTime > 0 && Input.GetMouseButtonDown (1) && rotX > shotJumpMinAngle && shotReady) {
 				FindObjectOfType<AudioManager> ().Play ("shotgunAccent");
 				playerVelocity.y = shotJumpSpeed;
 				shotJumpRemainTime = 0;

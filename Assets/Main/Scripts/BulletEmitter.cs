@@ -2,103 +2,70 @@
 
 public class BulletEmitter : MonoBehaviour
 {
+    public Transform BulletEmit;                 
+    public GameObject BulletGfx;                    
+    public float BulletSpeed = 100.0f;              
+    public float ShotGunCooldown = 0.25f;           
+    public int PelletCount = 6;               
+    public float ShotSpread = 5.0f;                 
 
-    public Transform bulletEmitter;                 //Get Bullet emitters Pos+Rot
-    public GameObject bulletGFX;                    //Get Bullet graphic
-    public float bulletSpeed = 100.0f;              //Foward force of bullet
-    public float fireRate = 0.25f;                  //Speed between shots
-    public int innerPelletCount = 4;                //Pellets in the centre
-    public int outerPelletCount = 6;                //Pellets in the outer spread
-    public float shotSpread = 5.0f;                 //Shotgun Spread
-
-
-    float nextShot;                                 //ready to shoot
-
+    private float _nextShot;
 
     // For bullet spread
-    private Quaternion pelletRot;
+    private Quaternion _pelletRot;
 
     [HideInInspector]
-    public bool shotReady;
-
+    public bool ShotReady;
 
     void Start()
     {
-        nextShot = fireRate;
+        _nextShot = ShotGunCooldown;
     }
 
     void Update()
     {
-        OnFire();
+        FireShotGun();
+        FireNailGun();
     }
 
-    /* Firerate and shot spawn */
-
-    private void OnFire()
+    // Fire shotgun with right click
+    private void FireShotGun()
     {
-        if (nextShot >= fireRate)
-            shotReady = true;
-        else
-        {
-            shotReady = false;
-        }
+        ShotReady = _nextShot >= ShotGunCooldown;
 
-        // Triggers when the gun is fired
-        if (Input.GetMouseButtonDown(0) && shotReady)
+        if (Input.GetMouseButtonDown(1) && ShotReady) // right mouse button
         {
             // Play sound(s)
             FindObjectOfType<AudioManager>().Play("shotgunBass");
 
             // Begin Cooldown
-            nextShot = 0;
+            _nextShot = 0;
 
-            // Spawn pellets
-            for (int i = 0; i < innerPelletCount; i++)
+            for (int i = 0; i < PelletCount; i++)
             {
-                pelletRot = Random.rotation;
+                _pelletRot = Random.rotation;
+                
+                GameObject activePellet = Instantiate(BulletGfx, BulletEmit.position, BulletEmit.rotation);
+                activePellet.transform.rotation = 
+                    Quaternion.RotateTowards(activePellet.transform.rotation, _pelletRot, ShotSpread);
 
-                GameObject activePellet = Instantiate(bulletGFX, bulletEmitter.position, bulletEmitter.rotation) as GameObject;
-                activePellet.transform.rotation = Quaternion.RotateTowards(activePellet.transform.rotation, pelletRot, shotSpread/4);
-
-                Rigidbody activeBulletRB = activePellet.GetComponent<Rigidbody>();
-                activeBulletRB.velocity = activePellet.transform.forward * bulletSpeed;
+                activePellet.GetComponent<Rigidbody>().velocity = activePellet.transform.forward * BulletSpeed;
+                Destroy(activePellet, 0.11f); // essentially reduces range
             }
-            for (int i = 0; i < outerPelletCount; i++)
-            {
-                pelletRot = Random.rotation;
-
-                GameObject activePellet = Instantiate(bulletGFX, bulletEmitter.position, bulletEmitter.rotation) as GameObject;
-                activePellet.transform.rotation = Quaternion.RotateTowards(activePellet.transform.rotation, pelletRot, shotSpread);
-
-                Rigidbody activeBulletRB = activePellet.GetComponent<Rigidbody>();
-                activeBulletRB.velocity = activePellet.transform.forward * bulletSpeed;
-            }
-
-            // Spawn Pellet Glow lights
-            /*  Light per bullet looks good for now
-             *  
-                for (int i = 0; i < lightCount; i++) {
-                lightRot = Random.rotation;
-
-                GameObject tmpLight = Instantiate(PelletLight, bulletEmitter.position, bulletEmitter.rotation) as GameObject;
-                tmpLight.transform.rotation = Quaternion.RotateTowards(tmpLight.transform.rotation, lightRot, lightSpread);
-
-                Rigidbody tmpLightRB = tmpLight.GetComponent<Rigidbody>();
-                tmpLightRB.velocity = tmpLight.transform.forward * bulletSpeed;
-                Destroy(tmpLight, bulletDespawn * Time.deltaTime);
-            }*/
-
-
-
         }
-
         // Charge next shot
-        nextShot += 1.0f * Time.deltaTime;
+        _nextShot += 1.0f * Time.deltaTime;
 
         // Stop charging when fire is ready      
-        if (nextShot > fireRate)
-        nextShot = fireRate;
+        if (_nextShot > ShotGunCooldown) _nextShot = ShotGunCooldown;
     }
 
-
+    private void FireNailGun()
+    {
+        if (Input.GetMouseButtonDown(0)) // left mouse button
+        {
+            Debug.Log("Fire NailGun");
+            
+        }
+    }
 }
