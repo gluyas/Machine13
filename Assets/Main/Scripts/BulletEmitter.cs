@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using NUnit.Framework;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -18,7 +21,7 @@ public class BulletEmitter : MonoBehaviour
     // Fields specific to the nailgun
     public float NailGunRateOfFire = 40;
     public float NailGunBulletSpeed = 100.0f;
-    public bool DoubleDamage;
+    public bool QuadDamage;
 
     [HideInInspector]
     public bool ShotReady;
@@ -83,16 +86,20 @@ public class BulletEmitter : MonoBehaviour
         if (Input.GetMouseButton(0) && _timer >= NailGunRateOfFire) // left mouse button
         {        
             GameObject activeBullet = Instantiate(BulletGfx, BulletEmit.position, BulletEmit.rotation);
+            activeBullet.transform.rotation = 
+                Quaternion.RotateTowards(activeBullet.transform.rotation, Random.rotation, 1.5f);
             activeBullet.GetComponent<Rigidbody>().velocity = activeBullet.transform.forward * NailGunBulletSpeed;
             
-            //TODO: Fix position of second bullet stream
-            if (DoubleDamage) // if double damage is on then shoot another stream of bullets
+            if (QuadDamage) // if quad damage is on then shoot four bullets at a time
             {
-                Vector3 newPos = new Vector3(BulletEmit.position.x-0.2f, BulletEmit.position.y, BulletEmit.position.z);
-                GameObject activeBullet2 = Instantiate(BulletGfx, newPos, BulletEmit.rotation);
-                activeBullet2.GetComponent<Rigidbody>().velocity = activeBullet.transform.forward * NailGunBulletSpeed;
+                for (int i = 0; i < 3; i++)
+                {
+                    GameObject bullet = Instantiate(BulletGfx, BulletEmit.position, BulletEmit.rotation);
+                    bullet.transform.rotation = 
+                        Quaternion.RotateTowards(activeBullet.transform.rotation, Random.rotation, 3f);
+                    bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * NailGunBulletSpeed;
+                }
             }
-
             _timer -= NailGunRateOfFire; // reset rate of fire   
         }
     }
