@@ -10,7 +10,7 @@ public class BulletEmitter : MonoBehaviour
     public Transform BulletEmit;
     public GameObject BulletGfx;   
      
-    // Fields specific to the shotgun
+    // Shotgun fields
     public float ShotGunCooldown = 0.5f;           
     public int ShotGunPelletCount = 120;               
     public float ShotGunSpread = 40.0f;       
@@ -18,15 +18,20 @@ public class BulletEmitter : MonoBehaviour
     private float _nextShot;
     private Quaternion _pelletRot; // For bullet spread
     
-    // Fields specific to the nailgun
+    // Nailgun fields
     public float NailGunRateOfFire = 40;
     public float NailGunBulletSpeed = 100.0f;
+    public float NailGunSpread = 1.5f;
+    public float QuadDamageSpread = 3f;
     public bool QuadDamage;
+    private float _nailTimer;
+    
+    // Railgun fields
+    public float RailGunChargeTime = 1f;
+    private float _railTimer;
 
     [HideInInspector]
     public bool ShotReady;
-
-    private float _timer;
 
     void Start()
     {
@@ -36,12 +41,15 @@ public class BulletEmitter : MonoBehaviour
 
     void Update()
     {
-        _timer += Time.deltaTime;
-        _timer = Mathf.Clamp(_timer, 0, NailGunRateOfFire);
+        // timer for setting nailgun rate of fire, clamped to avoid going higher than rate of fire
+        _nailTimer += Time.deltaTime;
+        _nailTimer = Mathf.Clamp(_nailTimer, 0, NailGunRateOfFire);
+        
+        
         
         FireShotGun();
         FireNailGun();
-        Debug.Log(_timer);
+        FireRailGun();
     }
 
     /// <summary>
@@ -83,11 +91,11 @@ public class BulletEmitter : MonoBehaviour
     /// </summary>
     private void FireNailGun()
     {
-        if (Input.GetMouseButton(0) && _timer >= NailGunRateOfFire) // left mouse button
+        if (Input.GetMouseButton(0) && _nailTimer >= NailGunRateOfFire) // left mouse button
         {        
             GameObject activeBullet = Instantiate(BulletGfx, BulletEmit.position, BulletEmit.rotation);
             activeBullet.transform.rotation = 
-                Quaternion.RotateTowards(activeBullet.transform.rotation, Random.rotation, 1.5f);
+                Quaternion.RotateTowards(activeBullet.transform.rotation, Random.rotation, NailGunSpread);
             activeBullet.GetComponent<Rigidbody>().velocity = activeBullet.transform.forward * NailGunBulletSpeed;
             
             if (QuadDamage) // if quad damage is on then shoot four bullets at a time
@@ -96,11 +104,34 @@ public class BulletEmitter : MonoBehaviour
                 {
                     GameObject bullet = Instantiate(BulletGfx, BulletEmit.position, BulletEmit.rotation);
                     bullet.transform.rotation = 
-                        Quaternion.RotateTowards(activeBullet.transform.rotation, Random.rotation, 3f);
+                        Quaternion.RotateTowards(activeBullet.transform.rotation, Random.rotation, QuadDamageSpread);
                     bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * NailGunBulletSpeed;
                 }
             }
-            _timer -= NailGunRateOfFire; // reset rate of fire   
+            _nailTimer = 0; // reset rate of fire   
+        }
+    }
+
+    /// <summary>
+    /// Fires the rail gun after holding the right mouse button for a period of time
+    /// </summary>
+    private void FireRailGun()
+    {
+        if (Input.GetMouseButton(1))
+        {
+            // begin charging
+            _railTimer += Time.deltaTime;
+            Debug.Log("Charging " + _railTimer);
+        }
+
+        if (_railTimer >= RailGunChargeTime)
+        {
+            Debug.Log("Fire Rail Gun");
+            _railTimer = 0;
+        }
+        if (Input.GetMouseButtonUp(1))
+        {
+            _railTimer = 0;
         }
     }
 }
