@@ -8,7 +8,8 @@ using Random = UnityEngine.Random;
 public class BulletEmitter : MonoBehaviour
 {
     public Transform BulletEmit;
-    public GameObject BulletGfx;   
+    public GameObject BulletGfx;  
+    public GameObject RailGfx;   
      
     // Shotgun fields
     public float ShotGunCooldown = 0.5f;           
@@ -53,7 +54,7 @@ public class BulletEmitter : MonoBehaviour
     }
 
     /// <summary>
-    /// Fires shotgun with right click
+    /// Fires shotgun when tapping the right mouse button
     /// </summary>
     private void FireShotGun()
     {
@@ -63,7 +64,6 @@ public class BulletEmitter : MonoBehaviour
         if (Input.GetMouseButton(1))
         {
             _shotTimer += Time.deltaTime;
-            Debug.Log("Charging shotgun " + _shotTimer);
         }
 
         if (Input.GetMouseButtonUp(1))
@@ -135,22 +135,22 @@ public class BulletEmitter : MonoBehaviour
     /// Fires the rail gun after holding the right mouse button for a period of time
     /// </summary>
     private void FireRailGun()
-    {
-        
-        if (Input.GetMouseButtonDown(1))
+    {   
+        if (Input.GetMouseButton(1))
         {
             // begin charging
             _railTimer += Time.deltaTime;
-            //Debug.Log("Charging " + _railTimer);
+            Debug.Log("Charging " + _railTimer);
         }
 
-        if (_railTimer >= RailGunChargeTime)
-        {
-            //Debug.Log("Fire Rail Gun");
-            
-        }
         if (Input.GetMouseButtonUp(1))
         {
+            if (_railTimer >= RailGunChargeTime)
+            {
+                Debug.Log("Fire Rail Gun");
+                GameObject activeBullet = Instantiate(RailGfx, BulletEmit.position, BulletEmit.rotation);
+                
+            }
             _railTimer = 0;
         }
     }
