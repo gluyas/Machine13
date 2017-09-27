@@ -259,7 +259,7 @@ public class GMSPlayer : MonoBehaviour
             shotJumpRemainTime -= 1 * Time.deltaTime;
 
             // When a shotjump is successful
-			if (shotJumpRemainTime > 0 && Input.GetMouseButtonDown (1) && rotX > shotJumpMinAngle && shotReady) {
+			if (shotJumpRemainTime > 0 && Input.GetMouseButtonUp(1) && rotX > shotJumpMinAngle && shotReady) {
 				FindObjectOfType<AudioManager> ().Play ("shotgunAccent");
 				playerVelocity.y = shotJumpSpeed;
 				shotJumpRemainTime = 0;

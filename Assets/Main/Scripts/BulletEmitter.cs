@@ -15,8 +15,10 @@ public class BulletEmitter : MonoBehaviour
     public int ShotGunPelletCount = 120;               
     public float ShotGunSpread = 40.0f;       
     public float ShotGunBulletSpeed = 100.0f;
+    public float ShotGunClickTime = 0.2f;
     private float _nextShot;
     private Quaternion _pelletRot; // For bullet spread
+    private float _shotTimer;
     
     // Nailgun fields
     public float NailGunRateOfFire = 40;
@@ -45,8 +47,6 @@ public class BulletEmitter : MonoBehaviour
         _nailTimer += Time.deltaTime;
         _nailTimer = Mathf.Clamp(_nailTimer, 0, NailGunRateOfFire);
         
-        
-        
         FireShotGun();
         FireNailGun();
         FireRailGun();
@@ -59,26 +59,45 @@ public class BulletEmitter : MonoBehaviour
     {
         ShotReady = _nextShot >= ShotGunCooldown;
 
-        if (Input.GetMouseButtonDown(1) && ShotReady) // right mouse button
+        // start timer to distinguish shotgun from railgun by firing shotgun on fast click 
+        if (Input.GetMouseButton(1))
         {
-            // Play sound(s)
-            FindObjectOfType<AudioManager>().Play("shotgunBass");
-
-            // Begin Cooldown
-            _nextShot = 0;
-
-            for (int i = 0; i < ShotGunPelletCount; i++)
-            {
-                _pelletRot = Random.rotation;
-                
-                GameObject activePellet = Instantiate(BulletGfx, BulletEmit.position, BulletEmit.rotation);
-                activePellet.transform.rotation = 
-                    Quaternion.RotateTowards(activePellet.transform.rotation, _pelletRot, ShotGunSpread);
-
-                activePellet.GetComponent<Rigidbody>().velocity = activePellet.transform.forward * ShotGunBulletSpeed;
-                Destroy(activePellet, 0.11f); // essentially reduces range
-            }
+            _shotTimer += Time.deltaTime;
+            Debug.Log("Charging shotgun " + _shotTimer);
         }
+
+        if (Input.GetMouseButtonUp(1))
+        {
+            if (_shotTimer < ShotGunClickTime && ShotReady) // right mouse button
+            {
+                // Play sound(s)
+                FindObjectOfType<AudioManager>().Play("shotgunBass");
+
+                Quaternion rot = new Quaternion(BulletGfx.transform.rotation.x, BulletGfx.transform.rotation.x,
+                    BulletGfx.transform.rotation.x, BulletGfx.transform.rotation.w);
+
+                BulletGfx.transform.rotation =
+                    Quaternion.RotateTowards(BulletGfx.transform.rotation, rot, ShotGunSpread);
+
+                // Begin Cooldown
+                _nextShot = 0;
+
+                for (int i = 0; i < ShotGunPelletCount; i++)
+                {
+                    _pelletRot = Random.rotation;
+
+                    GameObject activePellet = Instantiate(BulletGfx, BulletEmit.position, BulletEmit.rotation);
+                    activePellet.transform.rotation =
+                        Quaternion.RotateTowards(activePellet.transform.rotation, _pelletRot, ShotGunSpread);
+
+                    activePellet.GetComponent<Rigidbody>().velocity =
+                        activePellet.transform.forward * ShotGunBulletSpeed;
+                    Destroy(activePellet, 0.11f); // essentially reduces range
+                }
+            }
+            _shotTimer = 0; 
+        }
+
         // Charge next shot
         _nextShot += 1.0f * Time.deltaTime;
 
@@ -117,17 +136,18 @@ public class BulletEmitter : MonoBehaviour
     /// </summary>
     private void FireRailGun()
     {
-        if (Input.GetMouseButton(1))
+        
+        if (Input.GetMouseButtonDown(1))
         {
             // begin charging
             _railTimer += Time.deltaTime;
-            Debug.Log("Charging " + _railTimer);
+            //Debug.Log("Charging " + _railTimer);
         }
 
         if (_railTimer >= RailGunChargeTime)
         {
-            Debug.Log("Fire Rail Gun");
-            _railTimer = 0;
+            //Debug.Log("Fire Rail Gun");
+            
         }
         if (Input.GetMouseButtonUp(1))
         {
