@@ -3278,10 +3278,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BulletEmit: {fileID: 86085384}
   BulletGfx: {fileID: 1539486550844018, guid: 5fbb9077af3468041adefdf7702c64d7, type: 2}
+  RailGfx: {fileID: 1146678801294682, guid: fa529c7ba3f33f0469118533cb5af73b, type: 2}
   ShotGunCooldown: 0.5
   ShotGunPelletCount: 120
   ShotGunSpread: 40
   ShotGunBulletSpeed: 150
+  ShotGunClickTime: 0.2
   NailGunRateOfFire: 50
   NailGunBulletSpeed: 100
   NailGunSpread: 1.5
