@@ -3901,8 +3901,21 @@ MonoBehaviour:
     spread: 1
     loop: 0
     source: {fileID: 0}
-  - name: jump
-    clip: {fileID: 8300000, guid: ea20bf22ab040d94d9ab3135a4a40d77, type: 3}
+  - name: railGunFire
+    clip: {fileID: 8300000, guid: 46fbccf1687865c4092b6d700c5c3394, type: 3}
+    mixerGroup: {fileID: 0}
+    volume: 0.564
+    volumeVariance: 0.323
+    pitch: 1
+    pitchVariance: 0.025
+    spatialBlend: 0
+    minDistance: 1
+    maxDistance: 500
+    spread: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: railGunHold
+    clip: {fileID: 8300000, guid: b7eb481d81920b34db9fe0c8a4b758c2, type: 3}
     mixerGroup: {fileID: 0}
     volume: 0.279
     volumeVariance: 0.323

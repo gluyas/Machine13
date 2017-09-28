@@ -133,24 +133,33 @@ public class BulletEmitter : MonoBehaviour
 
     /// <summary>
     /// Fires the rail gun after holding the right mouse button for a period of time
+    /// 
+    /// TODO: blast player back on fire
+    /// TODO: Fix up visuals
     /// </summary>
     private void FireRailGun()
-    {           
+    {
+        if (Input.GetMouseButtonDown(1))
+        {
+            FindObjectOfType<AudioManager>().Play("railGunCharge");  
+        }
+         
         if (Input.GetMouseButton(1))
         {
-            //FindObjectOfType<AudioManager>().Play("railGunHold");
             // begin charging
             _railTimer += Time.deltaTime;
             Debug.Log("Charging " + _railTimer);
         }
-
+        
+        
         if (Input.GetMouseButtonUp(1))
         {
+            FindObjectOfType<AudioManager>().StopSound("railGunCharge");  
             if (_railTimer >= RailGunChargeTime)
             {
                 FindObjectOfType<AudioManager>().Play("railGunFire");
                 Debug.Log("Fire Rail Gun");
-                Ray railRay = new Ray(BulletEmit.position, Vector3.forward);
+               
   
                 GameObject activeBullet = Instantiate(RailGfx, BulletEmit.position, BulletEmit.rotation);
                 
