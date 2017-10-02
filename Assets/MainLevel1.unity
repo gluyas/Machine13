@@ -3289,7 +3289,7 @@ MonoBehaviour:
   NailGunSpread: 1.5
   QuadDamageSpread: 3
   QuadDamage: 0
-  RailGunChargeTime: 1
+  RailGunChargeTime: 1.85
   ShotReady: 0
 --- !u!1001 &1537423400
 Prefab:
@@ -3918,6 +3918,19 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: b7eb481d81920b34db9fe0c8a4b758c2, type: 3}
     mixerGroup: {fileID: 0}
     volume: 0.279
+    volumeVariance: 0.323
+    pitch: 1
+    pitchVariance: 0.025
+    spatialBlend: 0
+    minDistance: 1
+    maxDistance: 500
+    spread: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: railGunCharge
+    clip: {fileID: 8300000, guid: 73e1dfcb8b71489479463f81638c2993, type: 3}
+    mixerGroup: {fileID: 0}
+    volume: 0.599
     volumeVariance: 0.323
     pitch: 1
     pitchVariance: 0.025

@@ -19,6 +19,7 @@
  *
  */
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -99,6 +100,9 @@ public class GMSPlayer : MonoBehaviour
 
     // Player commands, stores wish commands that the player asks for (Forward, back, jump, etc)
     private Cmd _cmd;
+
+    public bool KickBack;
+    public int KickBackTime;
 
     private void Start()
     {
@@ -186,12 +190,31 @@ public class GMSPlayer : MonoBehaviour
             transform.position.x,
             transform.position.y + playerViewYOffset,
             transform.position.z);
+
+        if (KickBackTime >= 50)
+        {
+            KickBack = false;
+            KickBackTime = 0;
+        }
+        if (KickBack)
+        {
+            KnockBack();
+            KickBackTime++;
+        }
     }
 
     /*******************************************************************************************************\
    |* MOVEMENT
    \*******************************************************************************************************/
 
+    /// <summary>
+    /// Knocks the player back on railgun fire
+    /// </summary>
+    public void KnockBack()
+    {
+        Accelerate(-user.forward, 10, 90);
+    }
+    
     /**
      * Sets the movement direction based on player input
      */

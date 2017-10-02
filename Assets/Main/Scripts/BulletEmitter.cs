@@ -33,11 +33,14 @@ public class BulletEmitter : MonoBehaviour
     public float RailGunChargeTime = 1f;
     private float _railTimer;
 
+    private GameObject _player;
+
     [HideInInspector]
     public bool ShotReady;
 
     void Start()
     {
+        _player = GameObject.FindGameObjectWithTag("Player");
         _nextShot = ShotGunCooldown;
         NailGunRateOfFire = 1 / NailGunRateOfFire;
     }
@@ -160,9 +163,8 @@ public class BulletEmitter : MonoBehaviour
                 FindObjectOfType<AudioManager>().Play("railGunFire");
                 Debug.Log("Fire Rail Gun");
                
-  
                 GameObject activeBullet = Instantiate(RailGfx, BulletEmit.position, BulletEmit.rotation);
-                
+                _player.GetComponent<GMSPlayer>().KickBack = true;
             }
             _railTimer = 0;
         }
