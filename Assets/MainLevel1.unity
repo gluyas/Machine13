@@ -2890,7 +2890,7 @@ GameObject:
   - component: {fileID: 1368295816}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2994,6 +2994,8 @@ MonoBehaviour:
     m_StretchWidth: 1
     m_StretchHeight: 0
   fpsDisplayRate: 4
+  KickBack: 0
+  KickBackTime: 0
 --- !u!143 &1368295817
 CharacterController:
   m_ObjectHideFlags: 0
