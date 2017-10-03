@@ -18,11 +18,11 @@ namespace Main.Scripts.BulletProperties
 			{
 				other.gameObject.GetComponent<EntityHealth>().Health -= Damage;
 				FindObjectOfType<AudioManager>().Play("codHit");
-				Destroy(gameObject);
+				//Destroy(gameObject);
 			}
 			if (other.gameObject.CompareTag("Matter") || other.gameObject.CompareTag("Hazard"))
 			{
-				Destroy(gameObject);
+				//Destroy(gameObject);
 			}
 		}
 	}
