@@ -110,8 +110,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f7d55843d6f44d187b89385c4915b75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxSpeed: 12
-  MaxAcceleration: 500
+  MaxSpeed: 13.5
+  MaxAcceleration: 100
   AutoFacing: 0
   DestroyOnDeath: 0
   MaxHp: 0
@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56340ed0137aa9f43ae0d84921354df0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TurnRate: 4
+  TurnRate: 10
   SwarmRadius: 20
   AvoidanceRadius: 4
   AvoidanceExponent: 2

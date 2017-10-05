@@ -52,7 +52,7 @@ public class Entity : MonoBehaviour
 
 	private AudioSource _audio;
 	
-	private void Start()
+	private void Awake()
 	{
 		Hp = MaxHp;
 		_rb = GetComponent<Rigidbody>();
@@ -70,7 +70,7 @@ public class Entity : MonoBehaviour
 		if (Vector3.Dot(WishMovement, Movement) <= WishMovement.magnitude)
 		{
 			var force = MaxAcceleration * _rb.mass;
-			_rb.AddForce((WishMovement - Movement).normalized * force);
+			_rb.AddForce(Vector3.ClampMagnitude(WishMovement - Movement, 1) * force);
 			if (_rb.velocity.magnitude < 0.1) _rb.velocity = Vector3.zero;
 		}
 

@@ -592,7 +592,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPosition: {fileID: 4128052475728070}
-  robotMk1: {fileID: 1906573647813802, guid: 48e86fa88a0b02f478e1cccacff96532, type: 2}
+  robotMk1: {fileID: 1447198954892634, guid: c6753fd582dcd6d4e8152eb3d853398a, type: 2}
   spawnRate: 2
   rotationsPerMinute: 10
   speed: 1
