@@ -25,9 +25,10 @@ GameObject:
   - component: {fileID: 54385763360471434}
   - component: {fileID: 114141073213123464}
   - component: {fileID: 114407329720840476}
+  - component: {fileID: 114516764755883616}
   m_Layer: 0
   m_Name: Swarmer
-  m_TagString: Untagged
+  m_TagString: Hitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -111,8 +112,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxSpeed: 13.5
-  MaxAcceleration: 100
-  AutoFacing: 0
+  MaxAcceleration: 50
+  AutoFacing: 1
   DestroyOnDeath: 0
   MaxHp: 0
 --- !u!114 &114407329720840476
@@ -137,6 +138,18 @@ MonoBehaviour:
   NoiseWeight: 0
   NoiseDeltaMin: 0
   NoiseDeltaMax: 0
+--- !u!114 &114516764755883616
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1447198954892634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31d2bd4b4d60bd148926d8945e6ebd98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 1
 --- !u!135 &135957951655525832
 SphereCollider:
   m_ObjectHideFlags: 1
