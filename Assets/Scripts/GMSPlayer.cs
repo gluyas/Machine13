@@ -1,4 +1,4 @@
-﻿/**
+/**
  * - Edited by NovaSurfer (31.01.17).
  *   -----------------------------
  *   Rewriting from JS to C#
