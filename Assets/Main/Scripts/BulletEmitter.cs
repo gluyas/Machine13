@@ -147,17 +147,27 @@ public class BulletEmitter : MonoBehaviour
             FindObjectOfType<AudioManager>().Play("railGunCharge");  
         }
          
-        if (Input.GetMouseButton(1))
+        if (Input.GetMouseButton(1) && _railTimer < RailGunChargeTime)
         {
-            // begin charging
+            // Begin charging
             _railTimer += Time.deltaTime;
             Debug.Log("Charging " + _railTimer);
         }
-        
+
+        if (_railTimer >= RailGunChargeTime)
+        {
+            // While fully charged
+            FindObjectOfType<AudioManager>().StopSound("railGunCharge");
+            if (!FindObjectOfType<AudioManager>().IsPlaying("railGunHold"))
+            {
+                FindObjectOfType<AudioManager>().Play("railGunHold");
+            }
+        }
         
         if (Input.GetMouseButtonUp(1))
         {
-            FindObjectOfType<AudioManager>().StopSound("railGunCharge");  
+            FindObjectOfType<AudioManager>().StopSound("railGunCharge");
+            FindObjectOfType<AudioManager>().StopSound("railGunHold");
             if (_railTimer >= RailGunChargeTime)
             {
                 FindObjectOfType<AudioManager>().Play("railGunFire");
