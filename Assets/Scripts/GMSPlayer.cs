@@ -1,4 +1,4 @@
-﻿/**
+/**
  * - Edited by NovaSurfer (31.01.17).
  *   -----------------------------
  *   Rewriting from JS to C#
@@ -19,6 +19,7 @@
  *
  */
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -100,6 +101,9 @@ public class GMSPlayer : MonoBehaviour
     // Player commands, stores wish commands that the player asks for (Forward, back, jump, etc)
     private Cmd _cmd;
 
+    public bool KickBack;
+    public int KickBackTime;
+
     private void Start()
     {
         // Hide the cursor
@@ -134,7 +138,7 @@ public class GMSPlayer : MonoBehaviour
         /* Ensure that the cursor is locked into the screen */
         if (Cursor.lockState != CursorLockMode.Locked)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
                 Cursor.lockState = CursorLockMode.Locked;
         }
 
@@ -186,12 +190,31 @@ public class GMSPlayer : MonoBehaviour
             transform.position.x,
             transform.position.y + playerViewYOffset,
             transform.position.z);
+
+        if (KickBackTime >= 50)
+        {
+            KickBack = false;
+            KickBackTime = 0;
+        }
+        if (KickBack)
+        {
+            KnockBack();
+            KickBackTime++;
+        }
     }
 
     /*******************************************************************************************************\
    |* MOVEMENT
    \*******************************************************************************************************/
 
+    /// <summary>
+    /// Knocks the player back on railgun fire
+    /// </summary>
+    public void KnockBack()
+    {
+        Accelerate(-user.forward, 10, 90);
+    }
+    
     /**
      * Sets the movement direction based on player input
      */
@@ -251,16 +274,15 @@ public class GMSPlayer : MonoBehaviour
     /**
      * Excecutes a shotjump if requirements are met
      */
-
     private void ShotJump()
     {
         if (jumpSuccess)
         {
-            bool shotReady = GameObject.Find("Gun").GetComponent<BulletEmitter>().shotReady;
+            bool shotReady = GameObject.Find("Gun").GetComponent<BulletEmitter>().ShotReady;
             shotJumpRemainTime -= 1 * Time.deltaTime;
 
             // When a shotjump is successful
-			if (shotJumpRemainTime > 0 && Input.GetMouseButtonDown (0) && rotX > shotJumpMinAngle && shotReady) {
+			if (shotJumpRemainTime > 0 && Input.GetMouseButtonUp(1) && rotX > shotJumpMinAngle && shotReady) {
 				FindObjectOfType<AudioManager> ().Play ("shotgunAccent");
 				playerVelocity.y = shotJumpSpeed;
 				shotJumpRemainTime = 0;
