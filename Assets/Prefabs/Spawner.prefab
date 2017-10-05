@@ -595,6 +595,7 @@ MonoBehaviour:
   robotMk1: {fileID: 1447198954892634, guid: c6753fd582dcd6d4e8152eb3d853398a, type: 2}
   spawnRate: 2
   rotationsPerMinute: 10
+  spawnPosOffset: 1
   speed: 1
   newPositionTime: 5
   xRange: 20
