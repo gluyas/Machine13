@@ -7,6 +7,7 @@ public class SpawnerMark1 : MonoBehaviour {
     public GameObject robotMk1;                     //Get NPC
     public float spawnRate = 2.0f;
     public float rotationsPerMinute = 5.0f;
+    public float spawnPosOffset = 1;
     private float counter;
 
     // Settings
@@ -34,7 +35,11 @@ public class SpawnerMark1 : MonoBehaviour {
         }
 
         if (counter >= spawnRate) {
-            GameObject npc = Instantiate(robotMk1, spawnPosition.position, spawnPosition.rotation) as GameObject;
+            for (var i = 0; i < 10; i++)
+            {
+                GameObject npc = Instantiate(robotMk1, spawnPosition.position + 
+                                       Random.insideUnitSphere * spawnPosOffset, spawnPosition.rotation);
+            }
             counter = 0;
         }
         counter += 1.0f * Time.deltaTime;
