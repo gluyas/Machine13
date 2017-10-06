@@ -1,0 +1,13 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEditor;
+using UnityEngine;
+
+public class Quit : MonoBehaviour {
+	public void doquit()
+	{
+		Debug.Log("Quit");
+		Application.Quit ();
+		
+	}
+}

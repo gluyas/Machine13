@@ -43,6 +43,10 @@ public class GMSPlayer : MonoBehaviour
     public float playerViewYOffset = 0.6f;          // The height at which the camera is bound to
     public float xMouseSensitivity = 150f;
     public float yMouseSensitivity = 150f;
+    public float maxTilt = 3f;
+    public float tiltSpeed = 0.2f;
+    private float viewTilt = 0f;
+
     //
     /*Frame occuring factors*/
     public float gravity = 20.0f;
@@ -128,7 +132,7 @@ public class GMSPlayer : MonoBehaviour
 
     private void Update()
     {
-  
+
         // Get player position
         Vector3 playerposition = user.transform.position;
 
@@ -160,7 +164,7 @@ public class GMSPlayer : MonoBehaviour
             rotX = 90;
 
         this.transform.rotation = Quaternion.Euler(0, rotY, 0); // Rotates the collider
-        playerView.rotation = Quaternion.Euler(rotX, rotY, 0); // Rotates the camera
+        playerView.rotation = Quaternion.Euler(rotX, rotY, viewTilt); // Rotates the camera
 
 
 
@@ -252,14 +256,9 @@ public class GMSPlayer : MonoBehaviour
             Debug.Log("A " + other + " killed you");
         }
 		if (other.gameObject.tag == "BouncePad") {
-        //    if (other.transform.parent.gameObject.tag == "Matter") {
-        //        Collider parentCollider = other.transform.parent.GetComponent<Collider>();
-        //       parentCollider.isTrigger = true;
-        //    }
 
             wishBounce = true;
-            bounceCount = 0;
-            FindObjectOfType<AudioManager>().Play("bouncePad");
+        //    bounceCount = 0;
         //    Destroy(other.transform.parent.gameObject);
         }
     }
@@ -271,10 +270,11 @@ public class GMSPlayer : MonoBehaviour
     {
         if (wishBounce) {
             bounceCount += 1 * Time.deltaTime;
-            if (bounceCount >= 0.05f) {
+            //if (bounceCount >= 0.05f) {
+            FindObjectOfType<AudioManager>().Play("bouncePad");
             playerVelocity.y = shotJumpSpeed;
             wishBounce = false;
-            }
+            // }
         }
     }
 
@@ -289,7 +289,7 @@ public class GMSPlayer : MonoBehaviour
             shotJumpRemainTime -= 1 * Time.deltaTime;
 
             // When a shotjump is successful
-			if (shotJumpRemainTime > 0 && Input.GetMouseButtonUp(1) && rotX > shotJumpMinAngle && shotReady) {
+            if (shotJumpRemainTime > 0 && Input.GetMouseButtonUp(1) && rotX > shotJumpMinAngle && shotReady) {
 				FindObjectOfType<AudioManager> ().Play ("shotgunAccent");
 				playerVelocity.y = shotJumpSpeed;
 				shotJumpRemainTime = 0;
@@ -301,6 +301,7 @@ public class GMSPlayer : MonoBehaviour
     */
     private void AirMove()
     {
+        FindObjectOfType<DynamicFOV>().fovPunch(4f, 1f, 2f);
         Vector3 wishdir;
         float wishvel = airAcceleration;
         float accel;
@@ -325,6 +326,15 @@ public class GMSPlayer : MonoBehaviour
             accel = airDecceleration;
         else
             accel = airAcceleration;
+        //Tilts screen slower while moving in air than ground
+        if (_cmd.rightMove == -1 && viewTilt < maxTilt)
+            viewTilt += tiltSpeed/8;
+        if (_cmd.rightMove == 1 && viewTilt > -maxTilt)
+            viewTilt -= tiltSpeed/8;
+        if (_cmd.rightMove == 0 && viewTilt > 0)
+            viewTilt -= tiltSpeed/16;
+        if (_cmd.rightMove == 0 && viewTilt < 0)
+            viewTilt += tiltSpeed/16;
         // If the player is ONLY strafing left or right
         if (_cmd.forwardMove == 0 && _cmd.rightMove != 0)
         {
@@ -390,6 +400,15 @@ public class GMSPlayer : MonoBehaviour
     {
         Vector3 wishdir;
 
+        //Tilts the view when moving left or right
+        if (_cmd.rightMove == -1 && viewTilt < maxTilt)
+            viewTilt += tiltSpeed;
+        if (_cmd.rightMove == 1 && viewTilt > -maxTilt)
+            viewTilt -= tiltSpeed;
+        if (_cmd.rightMove == 0 && viewTilt > 0)
+            viewTilt -= tiltSpeed;
+        if (_cmd.rightMove == 0 && viewTilt < 0)
+            viewTilt += tiltSpeed;
 
         // Do not apply friction if the player is queueing up the next jump
         if (!wishJump)

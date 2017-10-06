@@ -1547,8 +1547,9 @@ GameObject:
   - component: {fileID: 853052669}
   - component: {fileID: 853052667}
   - component: {fileID: 853052666}
+  - component: {fileID: 853052668}
   m_Layer: 9
-  m_Name: Camera
+  m_Name: FirstPerson
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1588,6 +1589,19 @@ Behaviour:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 853052664}
   m_Enabled: 1
+--- !u!114 &853052668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 853052664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d5a3932de8688c4a99968d2f5820169, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerView: {fileID: 853052669}
+  punchAmount: 20
 --- !u!20 &853052669
 Camera:
   m_ObjectHideFlags: 0
@@ -2737,6 +2751,8 @@ MonoBehaviour:
   playerViewYOffset: 0.6
   xMouseSensitivity: 150
   yMouseSensitivity: 150
+  maxTilt: 2
+  tiltSpeed: 0.3
   gravity: 20
   friction: 6
   moveSpeed: 10
@@ -3108,16 +3124,16 @@ MonoBehaviour:
   BulletGfx: {fileID: 1539486550844018, guid: 5fbb9077af3468041adefdf7702c64d7, type: 2}
   RailGfx: {fileID: 1146678801294682, guid: fa529c7ba3f33f0469118533cb5af73b, type: 2}
   ShotGunCooldown: 0.5
-  ShotGunPelletCount: 120
+  ShotGunPelletCount: 150
   ShotGunSpread: 40
-  ShotGunBulletSpeed: 150
+  ShotGunBulletSpeed: 100
   ShotGunClickTime: 0.2
   NailGunRateOfFire: 50
   NailGunBulletSpeed: 100
   NailGunSpread: 1.5
   QuadDamageSpread: 3
   QuadDamage: 0
-  RailGunChargeTime: 1.8
+  RailGunChargeTime: 1.7
   ShotReady: 0
 --- !u!1001 &1537423400
 Prefab:
@@ -3276,6 +3292,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 5ebee3b993ef4254c90e1926438e56ce, type: 2}
+    - target: {fileID: 100000, guid: fed4b576dba67e04c9ee73c689c3d83e, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fed4b576dba67e04c9ee73c689c3d83e, type: 3}
   m_IsPrefabParent: 0
@@ -3643,7 +3663,7 @@ MonoBehaviour:
   - name: codHit
     clip: {fileID: 8300000, guid: eace6f23220d67b44b7d3b5b590d4cd2, type: 3}
     mixerGroup: {fileID: 0}
-    volume: 1
+    volume: 0.207
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0.1
@@ -3656,7 +3676,7 @@ MonoBehaviour:
   - name: railGunFire
     clip: {fileID: 8300000, guid: 46fbccf1687865c4092b6d700c5c3394, type: 3}
     mixerGroup: {fileID: 0}
-    volume: 0.564
+    volume: 0.376
     volumeVariance: 0.323
     pitch: 1
     pitchVariance: 0.025
@@ -3669,7 +3689,7 @@ MonoBehaviour:
   - name: railGunHold
     clip: {fileID: 8300000, guid: 850351e37a9e1f043bdef5ff1ff9e065, type: 3}
     mixerGroup: {fileID: 0}
-    volume: 0.279
+    volume: 0.184
     volumeVariance: 0.323
     pitch: 1
     pitchVariance: 0.025
@@ -3682,7 +3702,7 @@ MonoBehaviour:
   - name: railGunCharge
     clip: {fileID: 8300000, guid: 73e1dfcb8b71489479463f81638c2993, type: 3}
     mixerGroup: {fileID: 0}
-    volume: 0.632
+    volume: 0.36
     volumeVariance: 0.323
     pitch: 1
     pitchVariance: 0.025
@@ -3691,24 +3711,24 @@ MonoBehaviour:
     maxDistance: 500
     spread: 1
     loop: 0
+    source: {fileID: 0}
+  - name: nailgunFire
+    clip: {fileID: 8300000, guid: 8fb33eb546d6bd247b090ae16ce3c0f4, type: 3}
+    mixerGroup: {fileID: 0}
+    volume: 0.306
+    volumeVariance: 0.323
+    pitch: 1
+    pitchVariance: 0.025
+    spatialBlend: 0
+    minDistance: 1
+    maxDistance: 500
+    spread: 1
+    loop: 1
     source: {fileID: 0}
   - name: jump
     clip: {fileID: 8300000, guid: ea20bf22ab040d94d9ab3135a4a40d77, type: 3}
     mixerGroup: {fileID: 0}
-    volume: 0.599
-    volumeVariance: 0.323
-    pitch: 1
-    pitchVariance: 0.025
-    spatialBlend: 0
-    minDistance: 1
-    maxDistance: 500
-    spread: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: jump
-    clip: {fileID: 8300000, guid: 73e1dfcb8b71489479463f81638c2993, type: 3}
-    mixerGroup: {fileID: 0}
-    volume: 0.599
+    volume: 0.119
     volumeVariance: 0.323
     pitch: 1
     pitchVariance: 0.025
