@@ -532,7 +532,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MainCanvas: {fileID: 0}
   Music: {fileID: 1276520285}
-  fadein: 0.125
+  fadein: 0.0125
 --- !u!81 &1276520280
 AudioListener:
   m_ObjectHideFlags: 0

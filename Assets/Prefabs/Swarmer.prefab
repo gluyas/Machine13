@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 114141073213123464}
   - component: {fileID: 114407329720840476}
   - component: {fileID: 114516764755883616}
+  - component: {fileID: 114837870018240770}
   m_Layer: 0
   m_Name: Swarmer
   m_TagString: Hitbox
@@ -150,6 +151,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 1
+--- !u!114 &114837870018240770
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1447198954892634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d92d2568f0767734f824c6002a2754e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  masterVolume: 1
+  robotMotorStart: {fileID: 8300000, guid: a02ec44749823f548a7788a002b17b1d, type: 3}
+  startVolume: 0.15
+  startVolumeVariance: 0
+  startPitch: 0.75
+  startPitchVariance: 0
+  robotMotorHum: {fileID: 8300000, guid: 13648abad023ade40b2a29aac139f71c, type: 3}
+  humVolume: 0.31
+  humVolumeVariance: 0
+  humPitch: 0.81
+  humPitchVariance: 0.42
+  robotMotorTick: {fileID: 8300000, guid: deb64fd8ec7a5064ca827c1eae602e53, type: 3}
+  tickVolume: 0
+  tickVolumeVariance: 0
+  tickPitch: 1
+  tickPitchVariance: 0
+  tickPlayDelay: 1
 --- !u!135 &135957951655525832
 SphereCollider:
   m_ObjectHideFlags: 1

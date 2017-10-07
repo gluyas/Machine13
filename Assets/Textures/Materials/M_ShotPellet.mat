@@ -86,6 +86,6 @@ Material:
     - _VertexDetail: 80
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.9994929, g: 1, b: 0.9632353, a: 1}
+    - _Color: {r: 0, g: 1, b: 0.95862055, a: 1}
     - _Emission: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

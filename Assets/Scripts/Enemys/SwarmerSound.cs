@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RobotMark1 : MonoBehaviour {
+public class SwarmerSound : MonoBehaviour {
 
     // Audio stuff
     [Range(0f, 1f)]
@@ -42,16 +42,9 @@ public class RobotMark1 : MonoBehaviour {
     public float tickPlayDelay = 1f;
 
     // Settings
-    public float speed = 1.0f;
-    public float newPositionTime = 5.0f;
-    public float xRange = 20;
-    public float yRange = 5;
-    public float zRange = 20;
 
-    private Vector3 target;
     
     //misc variables
-    bool oneCall = true;
     float count = 0;
 
 
@@ -82,8 +75,6 @@ public class RobotMark1 : MonoBehaviour {
 
     private void Start()
     {
-        target = new Vector3(Random.Range(-xRange, xRange), Random.Range(0.5f, 1), Random.Range(-zRange, zRange));
-
         // Play Audio
         initialAudio.Play();
         humAudio.Play();
@@ -97,13 +88,6 @@ public class RobotMark1 : MonoBehaviour {
                 TickAudio.Play();
                 count = -5;
             }
-        }
-
-        float step = speed * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, target, step);
-        if (Vector3.Distance(transform.position, target) < 0.1f)
-        {
-            target = new Vector3(Random.Range(-xRange, xRange), Random.Range(0.5f, yRange), Random.Range(-zRange, zRange));
         }
     }
 }
