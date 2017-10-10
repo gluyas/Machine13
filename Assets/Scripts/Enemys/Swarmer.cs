@@ -1,7 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(Entity))]
 public class Swarmer : MonoBehaviour
@@ -31,6 +33,7 @@ public class Swarmer : MonoBehaviour
 	public float PopForce = 1f;
 	
 	public float NoiseWeight;
+	public float NoiseVerticalScale;
 	public float NoiseDeltaMin;
 	public float NoiseDeltaMax;
 	private Vector3 _noise;
@@ -126,14 +129,15 @@ public class Swarmer : MonoBehaviour
 		}
 		
 		// NOISE
-		var sign = Random.value > 0.5 ? -1 : 1;
+		var sign = Math.Sign(Random.value - 0.5);
 		var noiseDelta = Quaternion.AngleAxis(
-			sign * Random.Range(NoiseDeltaMin, NoiseDeltaMax) * Time.deltaTime, Vector3.up);
+			sign * Random.Range(NoiseDeltaMin, NoiseDeltaMax) * Time.deltaTime, Random.insideUnitSphere);
 		_noise = noiseDelta * _noise;
+		var noise = new Vector3(_noise.x, _noise.y * NoiseVerticalScale, _noise.z);
 		          
 		// FINAL CALCULATION
 		var result = CohesionWeight * cohesion + AlignmentWeight * alignment + AvoidanceWeight * avoidance +
-		             PursuitWeight * pursuit + NoiseWeight * _noise;
+		             PursuitWeight * pursuit + NoiseWeight * noise;
 		_entity.WishMovement += result / TotalWeight * TurnRate * Time.deltaTime;
 	}
 

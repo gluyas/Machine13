@@ -198,15 +198,16 @@ MonoBehaviour:
   SwarmRadius: 20
   AvoidanceRadius: 8
   AvoidanceExponent: 2
-  AvoidanceWeight: 2
+  AvoidanceWeight: 1
   AlignmentWeight: 1
   CohesionWeight: 1
   PursuitWeight: 1
   PopRadius: 4
   PopForce: 50
-  NoiseWeight: 0
-  NoiseDeltaMin: 0
-  NoiseDeltaMax: 0
+  NoiseWeight: 0.7
+  NoiseVerticalScale: 0.2
+  NoiseDeltaMin: 5
+  NoiseDeltaMax: 30
 --- !u!114 &114516764755883616
 MonoBehaviour:
   m_ObjectHideFlags: 1
