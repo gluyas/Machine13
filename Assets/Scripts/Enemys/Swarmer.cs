@@ -27,6 +27,9 @@ public class Swarmer : MonoBehaviour
 //	public float EdgeDistance = 5f;
 //	public float EdgeExponent = 2f;
 
+	public float PopRadius = 1f;
+	public float PopForce = 1f;
+	
 	public float NoiseWeight;
 	public float NoiseDeltaMin;
 	public float NoiseDeltaMax;
@@ -137,5 +140,9 @@ public class Swarmer : MonoBehaviour
 	private void OnDestroy()
 	{
 		All.Remove(this);
+		foreach (var other in All)
+		{
+			other._rb.AddExplosionForce(PopForce, this.transform.position, PopRadius);
+		}
 	}
 }
