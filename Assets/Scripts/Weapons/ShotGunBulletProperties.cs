@@ -17,12 +17,13 @@ namespace Main.Scripts.BulletProperties
 			if (other.gameObject.CompareTag("Hitbox"))
 			{
 				other.gameObject.GetComponent<EntityHealth>().Health -= Damage;
-				FindObjectOfType<AudioManager>().Play("codHit");
-				Destroy(gameObject);
+                FindObjectOfType<AudioManager>().Play("hitTarget");
+                Destroy(gameObject);
 			}
 			if (other.gameObject.CompareTag("Matter") || other.gameObject.CompareTag("Hazard"))
 			{
-				Destroy(gameObject);
+                FindObjectOfType<AudioManager>().Play("hitMatter");
+                Destroy(gameObject);
 			}
 		}
 	}

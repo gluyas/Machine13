@@ -6,10 +6,12 @@ namespace Main.Scripts.BulletProperties
 
 		public float Lifetime = 2.0f;           //Time untill bullets clear
 		public int Damage = 5;
+        public GameObject masterRail;
+
 		int _health;
     
 		void Start () {
-			Destroy(gameObject, Lifetime);
+            Destroy(masterRail, Lifetime);
 		}
 	
 		void OnTriggerEnter(Collider other)

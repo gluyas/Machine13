@@ -28,8 +28,9 @@ public class LevelManagement : MonoBehaviour {
         timeFloat = GameObject.Find("HUD").GetComponent<Timer>().timeFloat;
 
         // Press R to restart
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R)) {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
 
         // Level progression
         if (phase1 && timeFloat >= 10.0f)
@@ -71,7 +72,7 @@ public class LevelManagement : MonoBehaviour {
         }
 
         //Current endgame
-        if (timeFloat >= 55.0f)
+        if (timeFloat >= 60.0f)
         {
             counter +=  1 * Time.deltaTime;
             if (counter >= 3)

@@ -8,7 +8,8 @@ using Random = UnityEngine.Random;
 public class BulletEmitter : MonoBehaviour
 {
     public Transform BulletEmit;
-    public GameObject BulletGfx;  
+    public GameObject BulletGfx;
+    public GameObject PelletGfx;
     public GameObject RailGfx;   
      
     // Shotgun fields
@@ -31,6 +32,7 @@ public class BulletEmitter : MonoBehaviour
     
     // Railgun fields
     public float RailGunChargeTime = 1f;
+    public float RailGunOffset = 1f;
     private float _railTimer;
 
     private GameObject _player;
@@ -76,11 +78,11 @@ public class BulletEmitter : MonoBehaviour
                 // Play sound(s)
                 FindObjectOfType<AudioManager>().Play("shotgunBass");
 
-                Quaternion rot = new Quaternion(BulletGfx.transform.rotation.x, BulletGfx.transform.rotation.x,
-                    BulletGfx.transform.rotation.x, BulletGfx.transform.rotation.w);
+                Quaternion rot = new Quaternion(PelletGfx.transform.rotation.x, PelletGfx.transform.rotation.x,
+                    PelletGfx.transform.rotation.x, PelletGfx.transform.rotation.w);
 
-                BulletGfx.transform.rotation =
-                    Quaternion.RotateTowards(BulletGfx.transform.rotation, rot, ShotGunSpread);
+                PelletGfx.transform.rotation =
+                    Quaternion.RotateTowards(PelletGfx.transform.rotation, rot, ShotGunSpread);
 
                 // Begin Cooldown
                 _nextShot = 0;
@@ -89,7 +91,7 @@ public class BulletEmitter : MonoBehaviour
                 {
                     _pelletRot = Random.rotation;
 
-                    GameObject activePellet = Instantiate(BulletGfx, BulletEmit.position, BulletEmit.rotation);
+                    GameObject activePellet = Instantiate(PelletGfx, BulletEmit.position, BulletEmit.rotation);
                     activePellet.transform.rotation =
                         Quaternion.RotateTowards(activePellet.transform.rotation, _pelletRot, ShotGunSpread);
 
@@ -113,7 +115,7 @@ public class BulletEmitter : MonoBehaviour
     /// </summary>
     private void FireNailGun()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && !Input.GetMouseButton(1) && ShotReady)
         {
             if (!FindObjectOfType<AudioManager>().IsPlaying("nailgunFire"))
             {
@@ -139,7 +141,7 @@ public class BulletEmitter : MonoBehaviour
                 _nailTimer = 0; // reset rate of fire   
             }
         }
-        if (Input.GetMouseButtonUp(0))
+        else
         {
             FindObjectOfType<AudioManager>().StopSound("nailgunFire");
         }
@@ -175,7 +177,7 @@ public class BulletEmitter : MonoBehaviour
             }
         }
         
-        if (Input.GetMouseButtonUp(1))
+        if (!Input.GetMouseButton(1))
         {
             // When under charged
             FindObjectOfType<AudioManager>().StopSound("railGunCharge");
