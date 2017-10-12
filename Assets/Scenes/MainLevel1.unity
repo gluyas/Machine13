@@ -3414,7 +3414,7 @@ MonoBehaviour:
   ShotGunCooldown: 0.6
   ShotGunPelletCount: 150
   ShotGunSpread: 40
-  ShotGunBulletSpeed: 90
+  ShotGunBulletSpeed: 100
   ShotGunClickTime: 0.2
   NailGunRateOfFire: 9
   NailGunBulletSpeed: 100
