@@ -74,6 +74,11 @@ public class Entity : MonoBehaviour
 			if (_rb.velocity.magnitude < 0.1) _rb.velocity = Vector3.zero;
 		}
 
+		if (AutoFacing)
+		{
+			_rb.rotation = Quaternion.FromToRotation(Vector3.forward, Movement);
+		}
+
 //		if (AutoFacing)
 //		{
 //			if (WishMovement.magnitude > 0.1) Facing = WishMovement;
