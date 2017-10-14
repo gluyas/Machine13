@@ -126,6 +126,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4132950250199426}
   - component: {fileID: 114724979668677782}
+  - component: {fileID: 114963663988509262}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Hazard
@@ -496,7 +497,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31d2bd4b4d60bd148926d8945e6ebd98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 6
+  Health: 5
 --- !u!114 &114724979668677782
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -510,7 +511,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPosition: {fileID: 4128052475728070}
   robotMk1: {fileID: 1447198954892634, guid: c6753fd582dcd6d4e8152eb3d853398a, type: 2}
-  spawnRate: 6
+  spawnRate: 8
   rotationsPerMinute: 10
   spawnPosOffset: 1
   amountSpawned: 5
@@ -518,3 +519,22 @@ MonoBehaviour:
   newPositionTime: 5
   xRange: 20
   zRange: 20
+--- !u!114 &114963663988509262
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1921009115016220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4e208207eb5a8f449e3f541929ebd04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  masterVolume: 0.807
+  Initialize: {fileID: 8300000, guid: 3b55d4bb559278f4b8f213780132d3c1, type: 3}
+  InitializeVolume: 1
+  InitializeVolumeVariance: 0
+  InitializePitch: 1
+  InitializePitchVariance: 0.3
+  minDistance: 5
+  maxDistance: 100

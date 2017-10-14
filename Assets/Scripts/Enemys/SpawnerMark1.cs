@@ -26,6 +26,7 @@ public class SpawnerMark1 : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
         transform.Rotate(0, 6.0f * rotationsPerMinute * Time.deltaTime, 0);
 
         float step = speed * Time.deltaTime;

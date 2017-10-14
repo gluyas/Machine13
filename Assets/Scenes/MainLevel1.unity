@@ -20,7 +20,7 @@ RenderSettings:
   m_FogDensity: 0
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0, g: 0, b: 0, a: 1}
+  m_AmbientSkyColor: {r: 0.08088237, g: 0.08088237, b: 0.08088237, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 0
@@ -234,7 +234,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 44ea5589bdfda94478c92355d3f0ccb2, type: 2}
     - target: {fileID: 400000, guid: 080bc076ed19adb4091adca05de83d66, type: 3}
       propertyPath: m_LocalScale.y
-      value: 4
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 080bc076ed19adb4091adca05de83d66, type: 3}
       propertyPath: m_TagString
@@ -429,7 +429,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 44ea5589bdfda94478c92355d3f0ccb2, type: 2}
     - target: {fileID: 400000, guid: 080bc076ed19adb4091adca05de83d66, type: 3}
       propertyPath: m_LocalScale.y
-      value: 4
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 080bc076ed19adb4091adca05de83d66, type: 3}
       propertyPath: m_TagString
@@ -503,7 +503,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 44ea5589bdfda94478c92355d3f0ccb2, type: 2}
     - target: {fileID: 400000, guid: 080bc076ed19adb4091adca05de83d66, type: 3}
       propertyPath: m_LocalScale.y
-      value: 4
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 080bc076ed19adb4091adca05de83d66, type: 3}
       propertyPath: m_TagString
@@ -687,7 +687,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 44ea5589bdfda94478c92355d3f0ccb2, type: 2}
     - target: {fileID: 400000, guid: 080bc076ed19adb4091adca05de83d66, type: 3}
       propertyPath: m_LocalScale.y
-      value: 4
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 080bc076ed19adb4091adca05de83d66, type: 3}
       propertyPath: m_TagString
@@ -852,6 +852,19 @@ Prefab:
       propertyPath: m_Layer
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 23702529856177146, guid: 526dd69769678d34cab1249aa4b02ff3,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: af6fcf094e7e0864687ab70fed81574e, type: 2}
+    - target: {fileID: 4759528450933670, guid: 526dd69769678d34cab1249aa4b02ff3, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4759528450933670, guid: 526dd69769678d34cab1249aa4b02ff3, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 2.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 526dd69769678d34cab1249aa4b02ff3, type: 2}
   m_IsPrefabParent: 0
@@ -908,7 +921,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 44ea5589bdfda94478c92355d3f0ccb2, type: 2}
     - target: {fileID: 400000, guid: 080bc076ed19adb4091adca05de83d66, type: 3}
       propertyPath: m_LocalScale.y
-      value: 4
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 080bc076ed19adb4091adca05de83d66, type: 3}
       propertyPath: m_TagString
@@ -1163,7 +1176,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 44ea5589bdfda94478c92355d3f0ccb2, type: 2}
     - target: {fileID: 400000, guid: 080bc076ed19adb4091adca05de83d66, type: 3}
       propertyPath: m_LocalScale.y
-      value: 4
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 080bc076ed19adb4091adca05de83d66, type: 3}
       propertyPath: m_TagString
@@ -1241,7 +1254,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 44ea5589bdfda94478c92355d3f0ccb2, type: 2}
     - target: {fileID: 400000, guid: 080bc076ed19adb4091adca05de83d66, type: 3}
       propertyPath: m_LocalScale.y
-      value: 4
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 080bc076ed19adb4091adca05de83d66, type: 3}
       propertyPath: m_TagString
@@ -1379,6 +1392,19 @@ Prefab:
       propertyPath: m_Layer
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 23702529856177146, guid: 526dd69769678d34cab1249aa4b02ff3,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: af6fcf094e7e0864687ab70fed81574e, type: 2}
+    - target: {fileID: 4759528450933670, guid: 526dd69769678d34cab1249aa4b02ff3, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4759528450933670, guid: 526dd69769678d34cab1249aa4b02ff3, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 2.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 526dd69769678d34cab1249aa4b02ff3, type: 2}
   m_IsPrefabParent: 0
@@ -1435,7 +1461,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 44ea5589bdfda94478c92355d3f0ccb2, type: 2}
     - target: {fileID: 400000, guid: 080bc076ed19adb4091adca05de83d66, type: 3}
       propertyPath: m_LocalScale.y
-      value: 4
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 080bc076ed19adb4091adca05de83d66, type: 3}
       propertyPath: m_TagString
@@ -1533,7 +1559,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 44ea5589bdfda94478c92355d3f0ccb2, type: 2}
     - target: {fileID: 400000, guid: 080bc076ed19adb4091adca05de83d66, type: 3}
       propertyPath: m_LocalScale.y
-      value: 4
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 080bc076ed19adb4091adca05de83d66, type: 3}
       propertyPath: m_TagString
@@ -1611,7 +1637,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 44ea5589bdfda94478c92355d3f0ccb2, type: 2}
     - target: {fileID: 400000, guid: 080bc076ed19adb4091adca05de83d66, type: 3}
       propertyPath: m_LocalScale.y
-      value: 4
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 080bc076ed19adb4091adca05de83d66, type: 3}
       propertyPath: m_TagString
@@ -1713,7 +1739,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 44ea5589bdfda94478c92355d3f0ccb2, type: 2}
     - target: {fileID: 400000, guid: 080bc076ed19adb4091adca05de83d66, type: 3}
       propertyPath: m_LocalScale.y
-      value: 4
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 080bc076ed19adb4091adca05de83d66, type: 3}
       propertyPath: m_TagString
@@ -1952,7 +1978,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 44ea5589bdfda94478c92355d3f0ccb2, type: 2}
     - target: {fileID: 400000, guid: 080bc076ed19adb4091adca05de83d66, type: 3}
       propertyPath: m_LocalScale.y
-      value: 4
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 080bc076ed19adb4091adca05de83d66, type: 3}
       propertyPath: m_TagString
@@ -2030,7 +2056,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 44ea5589bdfda94478c92355d3f0ccb2, type: 2}
     - target: {fileID: 400000, guid: 080bc076ed19adb4091adca05de83d66, type: 3}
       propertyPath: m_LocalScale.y
-      value: 4
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 080bc076ed19adb4091adca05de83d66, type: 3}
       propertyPath: m_TagString
@@ -2320,7 +2346,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 44ea5589bdfda94478c92355d3f0ccb2, type: 2}
     - target: {fileID: 400000, guid: 080bc076ed19adb4091adca05de83d66, type: 3}
       propertyPath: m_LocalScale.y
-      value: 4
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 080bc076ed19adb4091adca05de83d66, type: 3}
       propertyPath: m_TagString
@@ -2492,7 +2518,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 44ea5589bdfda94478c92355d3f0ccb2, type: 2}
     - target: {fileID: 400000, guid: 080bc076ed19adb4091adca05de83d66, type: 3}
       propertyPath: m_LocalScale.y
-      value: 4
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 080bc076ed19adb4091adca05de83d66, type: 3}
       propertyPath: m_TagString
@@ -2594,7 +2620,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 080bc076ed19adb4091adca05de83d66, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3.2772038
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 080bc076ed19adb4091adca05de83d66, type: 3}
       propertyPath: m_Enabled
@@ -2714,7 +2740,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 44ea5589bdfda94478c92355d3f0ccb2, type: 2}
     - target: {fileID: 400000, guid: 080bc076ed19adb4091adca05de83d66, type: 3}
       propertyPath: m_LocalScale.y
-      value: 4
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 080bc076ed19adb4091adca05de83d66, type: 3}
       propertyPath: m_TagString
@@ -2936,6 +2962,19 @@ Prefab:
     - target: {fileID: 1732217886346778, guid: 526dd69769678d34cab1249aa4b02ff3, type: 2}
       propertyPath: m_Layer
       value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 23702529856177146, guid: 526dd69769678d34cab1249aa4b02ff3,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: af6fcf094e7e0864687ab70fed81574e, type: 2}
+    - target: {fileID: 4759528450933670, guid: 526dd69769678d34cab1249aa4b02ff3, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4759528450933670, guid: 526dd69769678d34cab1249aa4b02ff3, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 2.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 526dd69769678d34cab1249aa4b02ff3, type: 2}
@@ -3160,7 +3199,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 44ea5589bdfda94478c92355d3f0ccb2, type: 2}
     - target: {fileID: 400000, guid: 080bc076ed19adb4091adca05de83d66, type: 3}
       propertyPath: m_LocalScale.y
-      value: 4
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 080bc076ed19adb4091adca05de83d66, type: 3}
       propertyPath: m_TagString
@@ -3272,7 +3311,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 44ea5589bdfda94478c92355d3f0ccb2, type: 2}
     - target: {fileID: 400000, guid: 080bc076ed19adb4091adca05de83d66, type: 3}
       propertyPath: m_LocalScale.y
-      value: 4
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 080bc076ed19adb4091adca05de83d66, type: 3}
       propertyPath: m_TagString
@@ -3356,11 +3395,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114724979668677782, guid: f152a427e2f0d1842ac752dbc1da1cab,
-        type: 2}
-      propertyPath: spawnRate
-      value: 8
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f152a427e2f0d1842ac752dbc1da1cab, type: 2}
   m_IsPrefabParent: 0
@@ -3412,16 +3446,16 @@ MonoBehaviour:
   PelletGfx: {fileID: 1539486550844018, guid: bd79388f186463c4582fd5cd5f089fd6, type: 2}
   RailGfx: {fileID: 1146678801294682, guid: fa529c7ba3f33f0469118533cb5af73b, type: 2}
   ShotGunCooldown: 0.6
-  ShotGunPelletCount: 150
+  ShotGunPelletCount: 100
   ShotGunSpread: 40
   ShotGunBulletSpeed: 100
   ShotGunClickTime: 0.2
-  NailGunRateOfFire: 9
+  NailGunRateOfFire: 15
   NailGunBulletSpeed: 100
-  NailGunSpread: 1.3
+  NailGunSpread: 1.4
   QuadDamageSpread: 3
   QuadDamage: 0
-  RailGunChargeTime: 1.5
+  RailGunChargeTime: 1.2
   RailGunOffset: 4
   ShotReady: 0
 --- !u!1001 &1537423400
@@ -3477,7 +3511,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 44ea5589bdfda94478c92355d3f0ccb2, type: 2}
     - target: {fileID: 400000, guid: 080bc076ed19adb4091adca05de83d66, type: 3}
       propertyPath: m_LocalScale.y
-      value: 4
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 080bc076ed19adb4091adca05de83d66, type: 3}
       propertyPath: m_TagString
@@ -3683,7 +3717,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 44ea5589bdfda94478c92355d3f0ccb2, type: 2}
     - target: {fileID: 400000, guid: 080bc076ed19adb4091adca05de83d66, type: 3}
       propertyPath: m_LocalScale.y
-      value: 4
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 080bc076ed19adb4091adca05de83d66, type: 3}
       propertyPath: m_TagString
@@ -3765,7 +3799,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 44ea5589bdfda94478c92355d3f0ccb2, type: 2}
     - target: {fileID: 400000, guid: 080bc076ed19adb4091adca05de83d66, type: 3}
       propertyPath: m_LocalScale.y
-      value: 4
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 080bc076ed19adb4091adca05de83d66, type: 3}
       propertyPath: m_TagString
@@ -3847,7 +3881,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 44ea5589bdfda94478c92355d3f0ccb2, type: 2}
     - target: {fileID: 400000, guid: 080bc076ed19adb4091adca05de83d66, type: 3}
       propertyPath: m_LocalScale.y
-      value: 4
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 080bc076ed19adb4091adca05de83d66, type: 3}
       propertyPath: m_TagString
@@ -4047,7 +4081,7 @@ MonoBehaviour:
     mixerGroup: {fileID: 0}
     volume: 0.306
     volumeVariance: 0.323
-    pitch: 1
+    pitch: 1.11
     pitchVariance: 0.025
     spatialBlend: 0
     minDistance: 1
@@ -4062,6 +4096,32 @@ MonoBehaviour:
     volumeVariance: 0.323
     pitch: 1
     pitchVariance: 0.025
+    spatialBlend: 0
+    minDistance: 1
+    maxDistance: 500
+    spread: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: hitTarget
+    clip: {fileID: 8300000, guid: 9467403ea5e74544e9bf9e65c285fda5, type: 3}
+    mixerGroup: {fileID: 0}
+    volume: 0.142
+    volumeVariance: 0.323
+    pitch: 1.35
+    pitchVariance: 0.033
+    spatialBlend: 0
+    minDistance: 1
+    maxDistance: 500
+    spread: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: initializeSpawner
+    clip: {fileID: 8300000, guid: 3b55d4bb559278f4b8f213780132d3c1, type: 3}
+    mixerGroup: {fileID: 0}
+    volume: 0.725
+    volumeVariance: 0.323
+    pitch: 1.35
+    pitchVariance: 0.033
     spatialBlend: 0
     minDistance: 1
     maxDistance: 500
@@ -4147,7 +4207,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 44ea5589bdfda94478c92355d3f0ccb2, type: 2}
     - target: {fileID: 400000, guid: 080bc076ed19adb4091adca05de83d66, type: 3}
       propertyPath: m_LocalScale.y
-      value: 4
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 080bc076ed19adb4091adca05de83d66, type: 3}
       propertyPath: m_TagString
@@ -4310,7 +4370,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 44ea5589bdfda94478c92355d3f0ccb2, type: 2}
     - target: {fileID: 400000, guid: 080bc076ed19adb4091adca05de83d66, type: 3}
       propertyPath: m_LocalScale.y
-      value: 4
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 080bc076ed19adb4091adca05de83d66, type: 3}
       propertyPath: m_TagString
@@ -4394,6 +4454,19 @@ Prefab:
       propertyPath: m_Layer
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 23702529856177146, guid: 526dd69769678d34cab1249aa4b02ff3,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: af6fcf094e7e0864687ab70fed81574e, type: 2}
+    - target: {fileID: 4759528450933670, guid: 526dd69769678d34cab1249aa4b02ff3, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4759528450933670, guid: 526dd69769678d34cab1249aa4b02ff3, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 2.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 526dd69769678d34cab1249aa4b02ff3, type: 2}
   m_IsPrefabParent: 0
@@ -4450,7 +4523,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 44ea5589bdfda94478c92355d3f0ccb2, type: 2}
     - target: {fileID: 400000, guid: 080bc076ed19adb4091adca05de83d66, type: 3}
       propertyPath: m_LocalScale.y
-      value: 4
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 080bc076ed19adb4091adca05de83d66, type: 3}
       propertyPath: m_TagString
@@ -4544,7 +4617,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 44ea5589bdfda94478c92355d3f0ccb2, type: 2}
     - target: {fileID: 400000, guid: 080bc076ed19adb4091adca05de83d66, type: 3}
       propertyPath: m_LocalScale.y
-      value: 4
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 080bc076ed19adb4091adca05de83d66, type: 3}
       propertyPath: m_TagString
@@ -4662,7 +4735,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 44ea5589bdfda94478c92355d3f0ccb2, type: 2}
     - target: {fileID: 400000, guid: 080bc076ed19adb4091adca05de83d66, type: 3}
       propertyPath: m_LocalScale.y
-      value: 4
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 080bc076ed19adb4091adca05de83d66, type: 3}
       propertyPath: m_TagString
@@ -4745,7 +4818,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 44ea5589bdfda94478c92355d3f0ccb2, type: 2}
     - target: {fileID: 400000, guid: 080bc076ed19adb4091adca05de83d66, type: 3}
       propertyPath: m_LocalScale.y
-      value: 4
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 080bc076ed19adb4091adca05de83d66, type: 3}
       propertyPath: m_TagString
@@ -4828,7 +4901,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 44ea5589bdfda94478c92355d3f0ccb2, type: 2}
     - target: {fileID: 400000, guid: 080bc076ed19adb4091adca05de83d66, type: 3}
       propertyPath: m_LocalScale.y
-      value: 4
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 080bc076ed19adb4091adca05de83d66, type: 3}
       propertyPath: m_TagString
@@ -5023,7 +5096,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 44ea5589bdfda94478c92355d3f0ccb2, type: 2}
     - target: {fileID: 400000, guid: 080bc076ed19adb4091adca05de83d66, type: 3}
       propertyPath: m_LocalScale.y
-      value: 4
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 080bc076ed19adb4091adca05de83d66, type: 3}
       propertyPath: m_TagString
@@ -5101,7 +5174,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 44ea5589bdfda94478c92355d3f0ccb2, type: 2}
     - target: {fileID: 400000, guid: 080bc076ed19adb4091adca05de83d66, type: 3}
       propertyPath: m_LocalScale.y
-      value: 4
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 080bc076ed19adb4091adca05de83d66, type: 3}
       propertyPath: m_TagString
@@ -5179,7 +5252,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 44ea5589bdfda94478c92355d3f0ccb2, type: 2}
     - target: {fileID: 400000, guid: 080bc076ed19adb4091adca05de83d66, type: 3}
       propertyPath: m_LocalScale.y
-      value: 4
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 080bc076ed19adb4091adca05de83d66, type: 3}
       propertyPath: m_TagString

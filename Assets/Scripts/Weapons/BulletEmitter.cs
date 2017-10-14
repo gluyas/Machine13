@@ -97,7 +97,6 @@ public class BulletEmitter : MonoBehaviour
 
                     activePellet.GetComponent<Rigidbody>().velocity =
                         activePellet.transform.forward * ShotGunBulletSpeed;
-                    Destroy(activePellet, 0.11f); // essentially reduces range
                 }
             }
             _shotTimer = 0; 
