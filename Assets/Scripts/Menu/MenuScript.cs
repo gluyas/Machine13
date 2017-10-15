@@ -14,6 +14,22 @@ public class MenuScript : MonoBehaviour
     void Awake()
     {
         CurrentMenuState = MenuStates.Main; 
+        OptionsMenu.SetActive(false);
+    }
+
+    void Update()
+    {
+        switch (CurrentMenuState)
+        {
+            case MenuStates.Main:
+                MainMenu.SetActive(true);
+                OptionsMenu.SetActive(false);
+                break;
+            case MenuStates.Options:
+                OptionsMenu.SetActive(true);
+                MainMenu.SetActive(false);
+                break;
+        }
     }
 
     public void OnPlay()
@@ -24,6 +40,7 @@ public class MenuScript : MonoBehaviour
     public void OnOptions()
     {
         Debug.Log("Options");
+        CurrentMenuState = MenuStates.Options;
     }
     
     public void OnQuit()
@@ -39,5 +56,6 @@ public class MenuScript : MonoBehaviour
     public void OnMainMenu()
     {
         Debug.Log("Main Menu");
+        CurrentMenuState = MenuStates.Main;
     }
 }
