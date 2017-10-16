@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuScript : MonoBehaviour
 {
-
+    public GMSPlayer PlayerScript;
+    
     public enum MenuStates{Main, Options}
     public MenuStates CurrentMenuState;
 
@@ -35,6 +37,7 @@ public class MenuScript : MonoBehaviour
     public void OnPlay()
     {
         Debug.Log("Play");  
+        SceneManager.LoadScene("MainLevel1");
     }
     
     public void OnOptions()
@@ -50,7 +53,7 @@ public class MenuScript : MonoBehaviour
 
     public void OnSensitivity()
     {
-        Debug.Log("Sensitivity");
+        
     }
 
     public void OnMainMenu()
