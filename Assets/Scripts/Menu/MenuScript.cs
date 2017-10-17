@@ -51,11 +51,6 @@ public class MenuScript : MonoBehaviour
         Debug.Log("Quit");
     }
 
-    public void OnSensitivity()
-    {
-        
-    }
-
     public void OnMainMenu()
     {
         Debug.Log("Main Menu");
