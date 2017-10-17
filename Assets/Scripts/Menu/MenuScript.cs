@@ -7,16 +7,16 @@ public class MenuScript : MonoBehaviour
 {
     public GMSPlayer PlayerScript;
     
-    public enum MenuStates{Main, Options}
+    public enum MenuStates{Main, HighScore}
     public MenuStates CurrentMenuState;
 
     public GameObject MainMenu;
-    public GameObject OptionsMenu;
+    public GameObject HighScore;
 
     void Awake()
     {
         CurrentMenuState = MenuStates.Main; 
-        OptionsMenu.SetActive(false);
+        HighScore.SetActive(false);
     }
 
     void Update()
@@ -25,10 +25,10 @@ public class MenuScript : MonoBehaviour
         {
             case MenuStates.Main:
                 MainMenu.SetActive(true);
-                OptionsMenu.SetActive(false);
+                HighScore.SetActive(false);
                 break;
-            case MenuStates.Options:
-                OptionsMenu.SetActive(true);
+            case MenuStates.HighScore:
+                HighScore.SetActive(true);
                 MainMenu.SetActive(false);
                 break;
         }
@@ -40,10 +40,10 @@ public class MenuScript : MonoBehaviour
         SceneManager.LoadScene("MainLevel1");
     }
     
-    public void OnOptions()
+    public void OnHighScore()
     {
         Debug.Log("Options");
-        CurrentMenuState = MenuStates.Options;
+        CurrentMenuState = MenuStates.HighScore;
     }
     
     public void OnQuit()
