@@ -66,17 +66,29 @@ public class Entity : MonoBehaviour
 	}
 	
 	private void FixedUpdate()
-	{	
+	{
+		var acceleration = Vector3.ClampMagnitude(WishMovement - Movement, 1);
 		if (Vector3.Dot(WishMovement, Movement) <= WishMovement.magnitude)
 		{
 			var force = MaxAcceleration * _rb.mass;
-			_rb.AddForce(Vector3.ClampMagnitude(WishMovement - Movement, 1) * force);
+			_rb.AddForce(acceleration * force);
 			if (_rb.velocity.magnitude < 0.1) _rb.velocity = Vector3.zero;
 		}
 
 		if (AutoFacing)
 		{
-			_rb.rotation = Quaternion.FromToRotation(Vector3.forward, Movement);
+			var bankSide = Mathf.Sign(Vector3.Dot(Vector3.Cross(Movement, Vector3.up), acceleration));
+			
+			var bankAngle = Vector3.Angle(Movement, acceleration) * acceleration.magnitude * bankSide * 2;
+			if (bankAngle > 90) bankAngle = 90;
+			
+			var dorsalAxis = Quaternion.AngleAxis(bankAngle, Movement) * Vector3.up;
+			_rb.rotation = Quaternion.LookRotation(Movement, dorsalAxis);
+			
+			Debug.DrawRay(transform.position, WishMovement * 2, Color.red);
+			Debug.DrawRay(transform.position, acceleration * 10, Color.magenta);
+			Debug.DrawRay(transform.position, Movement * 2, Color.cyan);
+			Debug.DrawRay(transform.position, dorsalAxis * 2);
 		}
 
 //		if (AutoFacing)
