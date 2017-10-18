@@ -127,6 +127,7 @@ GameObject:
   - component: {fileID: 4132950250199426}
   - component: {fileID: 114724979668677782}
   - component: {fileID: 114963663988509262}
+  - component: {fileID: 114686086839252734}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Hazard
@@ -154,8 +155,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1921009115016220}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.00079612, y: -4.8068, z: 0}
+  m_LocalScale: {x: 1.878385, y: 1.878385, z: 1.878385}
   m_Children:
   - {fileID: 4128052475728070}
   - {fileID: 4743574068165846}
@@ -498,13 +499,112 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 5
---- !u!114 &114724979668677782
+--- !u!114 &114686086839252734
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1921009115016220}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ca857cb303fb1c4f88a907584a420dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Swarmer: {fileID: 1447198954892634, guid: c6753fd582dcd6d4e8152eb3d853398a, type: 2}
+  SpawnWaveSize: 6
+  SpawnWaveInterval: 5
+  SpawnWaveFirstInterval: 1
+  SpawnRadius: 1
+  SpawnOffset: {x: 0, y: 3, z: 0}
+  Height: 15
+  Rotation: 270
+  AscentionDisplacement:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  AscentionRotation:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.74117726
+      value: 0.22775802
+      inSlope: 0.9534508
+      outSlope: 0.9534508
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  AscentionTime: 5
+  DescentionDisplacement:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  DescentionRotation:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 2
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 3
+      inSlope: 2
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  DescentionTime: 2
+--- !u!114 &114724979668677782
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1921009115016220}
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a3b188f23745656469b6a6fb4b06c49f, type: 3}
   m_Name: 
