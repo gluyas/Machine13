@@ -205,8 +205,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1921009115016220}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.00079612, y: -4.8068, z: 0}
-  m_LocalScale: {x: 1.878385, y: 1.878385, z: 1.878385}
+  m_LocalPosition: {x: -0.00011724, y: 6.7, z: 0}
+  m_LocalScale: {x: 2.8878222, y: 3.6746998, z: 2.8878205}
   m_Children:
   - {fileID: 4404750837388224}
   - {fileID: 4128052475728070}
@@ -264,7 +264,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1579128737267242}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: -0, y: -0.0043, z: 0}
   m_LocalScale: {x: 7.8720374, y: 8.157783, z: 7.4292793}
   m_Children: []
   m_Father: {fileID: 4086850274856324}
@@ -452,13 +452,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ca857cb303fb1c4f88a907584a420dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Swarmer: {fileID: 1447198954892634, guid: c6753fd582dcd6d4e8152eb3d853398a, type: 2}
+  Swarmer: {fileID: 1447198954892634, guid: 355c562d1a625924180983eb437d0762, type: 2}
   SpawnWaveSize: 6
   SpawnWaveInterval: 5
   SpawnWaveFirstInterval: 1
-  SpawnRadius: 1
-  SpawnOffset: {x: 0, y: 3, z: 0}
-  Height: 15
+  SpawnRadius: 3
+  SpawnOffset: {x: 0, y: 25, z: 0}
+  Height: 20
   Rotation: 270
   AscentionDisplacement:
     serializedVersion: 2
@@ -488,10 +488,10 @@ MonoBehaviour:
       outSlope: 0
       tangentMode: 0
     - serializedVersion: 2
-      time: 0.74117726
-      value: 0.22775802
-      inSlope: 0.9534508
-      outSlope: 0.9534508
+      time: 0.5354377
+      value: 0.2882722
+      inSlope: 1.2718141
+      outSlope: 1.2718141
       tangentMode: 0
     - serializedVersion: 2
       time: 1
