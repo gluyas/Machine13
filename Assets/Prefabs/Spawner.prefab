@@ -295,7 +295,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 42ef92aecaeef4043bfafa910a31b6e7, type: 2}
+  - {fileID: 2100000, guid: 9072e786cea33694784815f7074cc1c5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -327,7 +327,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 42ef92aecaeef4043bfafa910a31b6e7, type: 2}
+  - {fileID: 2100000, guid: 9072e786cea33694784815f7074cc1c5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -452,7 +452,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPosition: {fileID: 4128052475728070}
-  robotMk1: {fileID: 1447198954892634, guid: c6753fd582dcd6d4e8152eb3d853398a, type: 2}
+  robotMk1: {fileID: 1447198954892634, guid: 355c562d1a625924180983eb437d0762, type: 2}
   spawnRate: 8
   rotationsPerMinute: 10
   spawnPosOffset: 1
