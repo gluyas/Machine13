@@ -374,7 +374,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 2
       time: 0
-      value: 0.8
+      value: 0.9
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -422,7 +422,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   DestroyOnDeath: 0
-  Health: 40
+  Health: 35
 --- !u!114 &114686086839252734
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -554,11 +554,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4e208207eb5a8f449e3f541929ebd04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  masterVolume: 0.807
+  masterVolume: 1
   Initialize: {fileID: 8300000, guid: 3b55d4bb559278f4b8f213780132d3c1, type: 3}
   InitializeVolume: 1
   InitializeVolumeVariance: 0
   InitializePitch: 1
   InitializePitchVariance: 0.3
   minDistance: 5
-  maxDistance: 100
+  maxDistance: 500

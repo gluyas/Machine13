@@ -108,7 +108,7 @@ public class GMSPlayer : MonoBehaviour
     private Cmd _cmd;
 
     public bool KickBack;
-    public int KickBackTime;
+    public float KickBackTime;
 
     private void Awake()
     {
@@ -130,7 +130,7 @@ public class GMSPlayer : MonoBehaviour
         _controller = GetComponent<CharacterController>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
 
         // Get player position
@@ -202,7 +202,7 @@ public class GMSPlayer : MonoBehaviour
             transform.position.y + playerViewYOffset,
             transform.position.z);
 
-        if (KickBackTime >= 50)
+        if (KickBackTime >= 0.1)
         {
             KickBack = false;
             KickBackTime = 0;
@@ -210,7 +210,7 @@ public class GMSPlayer : MonoBehaviour
         if (KickBack)
         {
             KnockBack();
-            KickBackTime++;
+            KickBackTime += Time.deltaTime;
         }
     }
 
