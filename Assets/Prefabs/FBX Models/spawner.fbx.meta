@@ -1,29 +1,22 @@
 fileFormatVersion: 2
-guid: 3b5b6807ab1f346dcbedc11725421c91
-timeCreated: 1508220916
+guid: 20225ff14ea971a4998b4acb06b11ce7
+timeCreated: 1508376739
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: group
-    100002: group1
-    100004: pasted__group
-    100006: pasted__pasted__pPyramid1
-    100008: pPyramid1
-    100010: //RootNode
-    400000: group
-    400002: group1
-    400004: pasted__group
-    400006: pasted__pasted__pPyramid1
-    400008: pPyramid1
-    400010: //RootNode
-    2300000: pasted__pasted__pPyramid1
-    2300002: pPyramid1
-    3300000: pasted__pasted__pPyramid1
-    3300002: pPyramid1
-    4300000: pPyramid1
-    4300002: pasted__pasted__pPyramid1
-    9500000: //RootNode
+    100000: pCone8
+    100002: pCone9
+    100004: //RootNode
+    400000: pCone8
+    400002: pCone9
+    400004: //RootNode
+    2300000: pCone8
+    2300002: pCone9
+    3300000: pCone8
+    3300002: pCone9
+    4300000: pCone8
+    4300002: pCone9
   materials:
     importMaterials: 1
     materialName: 0
@@ -88,7 +81,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
