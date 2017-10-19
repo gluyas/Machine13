@@ -264,6 +264,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56340ed0137aa9f43ae0d84921354df0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DeathEffect: {fileID: 198772186419657506, guid: d15515b34ea6545b4b5590315989eaec,
+    type: 2}
   TurnRate: 15
   SwarmRadius: 20
   AvoidanceRadius: 8

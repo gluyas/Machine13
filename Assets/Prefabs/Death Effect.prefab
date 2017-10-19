@@ -35,7 +35,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1676474633305988}
   m_LocalRotation: {x: -0, y: 0.8075675, z: -0, w: 0.5897752}
-  m_LocalPosition: {x: -4.554264, y: 2.4850602, z: -8.857524}
+  m_LocalPosition: {x: -13.203, y: 10.421, z: -6.596}
   m_LocalScale: {x: 1.0200002, y: 1.02, z: 1.0200002}
   m_Children: []
   m_Father: {fileID: 0}
@@ -48,7 +48,7 @@ ParticleSystem:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1676474633305988}
   serializedVersion: 5
-  lengthInSec: 0.24
+  lengthInSec: 0.1
   simulationSpeed: 1
   looping: 0
   prewarm: 0
@@ -96,13 +96,13 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -589413008
+  randomSeed: 999715072
   InitialModule:
     serializedVersion: 3
     enabled: 1
     startLifetime:
       minMaxState: 0
-      scalar: 1.9
+      scalar: 0.11
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -141,7 +141,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startSpeed:
       minMaxState: 0
-      scalar: 5.17
+      scalar: 4
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -243,7 +243,7 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
     startSize:
       minMaxState: 0
-      scalar: 0.11
+      scalar: 0.07
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -481,7 +481,7 @@ ParticleSystem:
     rotation3D: 0
     gravityModifier:
       minMaxState: 0
-      scalar: 1.83
+      scalar: 1.75
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -630,7 +630,7 @@ ParticleSystem:
     serializedVersion: 4
     rateOverTime:
       minMaxState: 0
-      scalar: 10
+      scalar: 8.72
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -709,7 +709,7 @@ ParticleSystem:
     m_BurstCount: 1
     m_Bursts:
     - time: 0
-      minCount: 30
+      minCount: 15
       maxCount: 30
       cycleCount: 1
       repeatInterval: 0.01
@@ -3064,8 +3064,8 @@ ParticleSystemRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 2100000, guid: 76ff537c8e1a84345868e6aeee938ab3, type: 2}
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 5c5a6a716748a4e74a9b1960e823c045, type: 2}
+  - {fileID: 2100000, guid: 5c5a6a716748a4e74a9b1960e823c045, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
