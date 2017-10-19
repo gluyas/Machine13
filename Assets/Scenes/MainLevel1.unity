@@ -4034,13 +4034,13 @@ MonoBehaviour:
     spread: 1
     loop: 0
     source: {fileID: 0}
-  - name: codHit
-    clip: {fileID: 8300000, guid: eace6f23220d67b44b7d3b5b590d4cd2, type: 3}
+  - name: swarmerPuncture
+    clip: {fileID: 8300000, guid: f2b7de8072d4d3a4f94462d1bb44003c, type: 3}
     mixerGroup: {fileID: 0}
-    volume: 0
-    volumeVariance: 0
-    pitch: 0.26
-    pitchVariance: 0.1
+    volume: 0.141
+    volumeVariance: 0.121
+    pitch: 1
+    pitchVariance: 0.209
     spatialBlend: 0
     minDistance: 1
     maxDistance: 500
@@ -4115,7 +4115,7 @@ MonoBehaviour:
   - name: hitTarget
     clip: {fileID: 8300000, guid: 9467403ea5e74544e9bf9e65c285fda5, type: 3}
     mixerGroup: {fileID: 0}
-    volume: 0.142
+    volume: 0.233
     volumeVariance: 0.323
     pitch: 1.35
     pitchVariance: 0.033
@@ -4144,6 +4144,19 @@ MonoBehaviour:
     volume: 0.142
     volumeVariance: 0.323
     pitch: 1.35
+    pitchVariance: 0.033
+    spatialBlend: 0
+    minDistance: 1
+    maxDistance: 500
+    spread: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: swarmerKill
+    clip: {fileID: 8300000, guid: 195a78117528b19468e3578323113df9, type: 3}
+    mixerGroup: {fileID: 0}
+    volume: 0.262
+    volumeVariance: 0.217
+    pitch: 1
     pitchVariance: 0.033
     spatialBlend: 0
     minDistance: 1

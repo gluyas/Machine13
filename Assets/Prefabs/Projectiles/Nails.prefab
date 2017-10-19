@@ -255,4 +255,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Lifetime: 2
   Damage: 1
-  Penetration: 3
+  Penetration: 2
