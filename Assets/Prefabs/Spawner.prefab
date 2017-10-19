@@ -440,7 +440,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31d2bd4b4d60bd148926d8945e6ebd98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 5
+  Health: 40
 --- !u!114 &114686086839252734
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -453,9 +453,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Swarmer: {fileID: 1447198954892634, guid: 355c562d1a625924180983eb437d0762, type: 2}
-  SpawnWaveSize: 6
+  SpawnWaveSize: 7
   SpawnWaveInterval: 5
-  SpawnWaveFirstInterval: 1
+  SpawnWaveFirstInterval: 0.5
   SpawnRadius: 3
   SpawnOffset: {x: 0, y: 25, z: 0}
   Height: 20
@@ -502,7 +502,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
-  AscentionTime: 5
+  AscentionTime: 3
   DescentionDisplacement:
     serializedVersion: 2
     m_Curve:

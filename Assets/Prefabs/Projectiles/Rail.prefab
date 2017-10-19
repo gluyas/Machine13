@@ -283,5 +283,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Lifetime: 0.1
-  Damage: 5
+  Damage: 30
   masterRail: {fileID: 1146678801294682}

@@ -54,7 +54,6 @@ public class LevelManagement : MonoBehaviour {
         if (_timeFloat >= 35.0f && _phase4) {
             _counter += 1 * Time.deltaTime;
             if (_counter >= 8) { 
-                GameObject wokeSpawner = Instantiate(Spawner, transform.position + new Vector3(40, 6, 0), transform.rotation) as GameObject;
                 MakeSpawner(); MakeSpawner(); MakeSpawner();
                 _counter = 0;
             }
