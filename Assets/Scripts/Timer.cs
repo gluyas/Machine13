@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Timer : MonoBehaviour {
@@ -9,13 +10,14 @@ public class Timer : MonoBehaviour {
 
     private void Start()
     {
-        highscore.text = "HIGHSCORE " + PlayerPrefs.GetFloat("Highscore", timeFloat).ToString("f2");
+        highscore.text = "HIGHSCORE\n" + PlayerPrefs.GetFloat("Highscore", timeFloat).ToString("f2");
     }
 
     public void Update()
     {
         timeFloat += 1 * Time.deltaTime;
-        time.text = timeFloat.ToString("f2");
+        if (time != null) time.text = timeFloat.ToString("f2");
+            
         if (timeFloat > PlayerPrefs.GetFloat("Highscore", 0)) {
             PlayerPrefs.SetFloat("Highscore", timeFloat);
         }
@@ -23,7 +25,7 @@ public class Timer : MonoBehaviour {
         {
             PlayerPrefs.DeleteKey("Highscore");
             PlayerPrefs.SetFloat("Highscore", 0);
-            highscore.text = "HIGHSCORE " + PlayerPrefs.GetFloat("Highscore", timeFloat).ToString("f2");
+            highscore.text = "HIGHSCORE " + PlayerPrefs.GetFloat("Highscore" , timeFloat).ToString("f2");
         }
     }
 }

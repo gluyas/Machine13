@@ -308,7 +308,7 @@ MonoBehaviour:
   startPitch: 0.75
   startPitchVariance: 0
   robotMotorHum: {fileID: 8300000, guid: 13648abad023ade40b2a29aac139f71c, type: 3}
-  humVolume: 0.391
+  humVolume: 1
   humVolumeVariance: 0
   humPitch: 0.81
   humPitchVariance: 0.42
