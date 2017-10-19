@@ -1,10 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EntityHealth : MonoBehaviour
 {
+    public UnityEvent OnDeath = new UnityEvent();
+    public bool DestroyOnDeath = true;
     public int Health = 3;
+    public bool Dead { get; private set; }
 
     private static Color _damageFlashColor = Color.yellow;
     private static float _damageFlashTime = 0.2f;
@@ -14,6 +18,7 @@ public class EntityHealth : MonoBehaviour
     
     private void Awake()
     {
+        if (DestroyOnDeath) OnDeath.AddListener(DoDestroy);
         _renderers = transform.root.gameObject.GetComponentsInChildren<Renderer>();
         _colors = new Color[_renderers.Length];
         for (var i = 0; i < _renderers.Length; i++)
@@ -44,17 +49,23 @@ public class EntityHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Health <= 0)
+        if (!Dead && Health <= 0)
         {
-            if (transform.parent == null)
-                Destroy(gameObject, 0.0f);
-            if (transform.parent != null) { 
-                if (transform.parent.parent != null)
-                    Destroy(transform.parent.parent.gameObject, 0.0f);
+            OnDeath.Invoke();
+            Dead = true;
+        }
+    }
 
-                if (transform.parent != null)
-                    Destroy(transform.parent.gameObject, 0.0f);
-            }
+    public void DoDestroy()
+    {
+        if (transform.parent == null)
+            Destroy(gameObject, 0.0f);
+        if (transform.parent != null) { 
+            if (transform.parent.parent != null)
+                Destroy(transform.parent.parent.gameObject, 0.0f);
+
+            if (transform.parent != null)
+                Destroy(transform.parent.gameObject, 0.0f);
         }
     }
 }

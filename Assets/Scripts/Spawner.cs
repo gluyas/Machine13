@@ -32,7 +32,7 @@ public class Spawner : MonoBehaviour
 	private HashSet<Func<bool>> _updaters = new HashSet<Func<bool>>();
 
 	public void Init(Vector3 pos)
-	{
+	{			
 		this.transform.position = pos;
 		_baseHeight = pos.y;
 
@@ -69,6 +69,29 @@ public class Spawner : MonoBehaviour
 				return true;
 			}
 			else return false;
+		});
+		
+		GetComponentInChildren<EntityHealth>().OnDeath.AddListener(() =>		// ascend animation
+		{
+			time = DescentionTime;
+			_updaters.Add(() =>
+			{
+				time = Mathf.Clamp(time - Time.deltaTime, 0, time);
+				Debug.Log(time);
+				this.transform.position = new Vector3(
+					transform.position.x,
+					_baseHeight + DescentionDisplacement.Evaluate(1 - time / DescentionTime) * Height,
+					transform.position.z
+				);
+				_rotation = DescentionRotation.Evaluate(1 - time / DescentionTime) * Rotation;
+				
+				if (time <= 0)
+				{
+					GetComponentInChildren<EntityHealth>().DoDestroy();
+					return true;
+				}
+				else return false;
+			});
 		});
 	}
 

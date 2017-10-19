@@ -3933,7 +3933,7 @@ MonoBehaviour:
   DeathMachineMK3: {fileID: 1840294154827922, guid: da0f2b14e4a095144b4845405e910885,
     type: 2}
   SpawnerSpawnRadius: 60
-  SpawnerSpawnBaseHeight: -30
+  SpawnerSpawnBaseHeight: -35
 --- !u!1 &1737376445
 GameObject:
   m_ObjectHideFlags: 0

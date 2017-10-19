@@ -335,6 +335,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31d2bd4b4d60bd148926d8945e6ebd98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  DestroyOnDeath: 0
   Health: 40
 --- !u!114 &114686086839252734
 MonoBehaviour:
@@ -353,7 +359,7 @@ MonoBehaviour:
   SpawnWaveFirstInterval: 0.5
   SpawnRadius: 3
   SpawnOffset: {x: 0, y: 25, z: 0}
-  Height: 20
+  Height: 27
   Rotation: 270
   AscentionDisplacement:
     serializedVersion: 2
@@ -403,38 +409,38 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 2
       time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
+      value: 0.9999807
+      inSlope: -0.2097117
+      outSlope: -0.2097117
       tangentMode: 0
     - serializedVersion: 2
       time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
+      value: 0.006511688
+      inSlope: -4.0767508
+      outSlope: -4.0767508
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   DescentionRotation:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 2
-      time: 0
-      value: 1
+      time: 0.0032530278
+      value: -0.00858134
       inSlope: 0
-      outSlope: 2
+      outSlope: 0
       tangentMode: 0
     - serializedVersion: 2
-      time: 1
-      value: 3
-      inSlope: 2
-      outSlope: 0
+      time: 0.997188
+      value: -1.0055463
+      inSlope: -0.1843719
+      outSlope: -0.1843719
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
-  DescentionTime: 2
+    m_RotationOrder: 0
+  DescentionTime: 4
 --- !u!114 &114724979668677782
 MonoBehaviour:
   m_ObjectHideFlags: 1
