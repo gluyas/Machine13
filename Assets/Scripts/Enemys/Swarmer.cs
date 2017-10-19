@@ -8,6 +8,8 @@ using Random = UnityEngine.Random;
 [RequireComponent(typeof(Entity))]
 public class Swarmer : MonoBehaviour
 {
+	public ParticleSystem DeathEffect;
+
 	public static readonly HashSet<Swarmer> All = new HashSet<Swarmer>();
 	
 	// AI property weighting
@@ -143,6 +145,8 @@ public class Swarmer : MonoBehaviour
 
 	private void OnDestroy()
 	{
+		Instantiate (DeathEffect, transform.position, transform.rotation);
+
 		All.Remove(this);
 		foreach (var other in All)
 		{
