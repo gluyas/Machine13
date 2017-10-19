@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -44,9 +44,6 @@ public class Entity : MonoBehaviour
 	public int Hp { get; private set; }
 
 	public bool Dead { get; private set; }
-
-	private int _platforms = 0;
-	public bool HasPlatforms { get { return _platforms > 0; }}
 	
 	private Rigidbody _rb;
 

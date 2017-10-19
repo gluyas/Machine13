@@ -1,4 +1,4 @@
-﻿using UnityEngine.SceneManagement;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class LevelManagement : MonoBehaviour {
@@ -7,86 +7,96 @@ public class LevelManagement : MonoBehaviour {
     public GameObject DeathMachineMK1;
     public GameObject DeathMachineMK2;
     public GameObject DeathMachineMK3;
-    private float timeFloat;
-    private bool phase1 = true;
-    private bool phase2 = true;
-    private bool phase3 = true;
-    private bool phase4 = true;
+    
+    public float SpawnerSpawnRadius = 20;
+    public float SpawnerSpawnBaseHeight = -10;
+    
+    private float _timeFloat;
+    private bool _phase1 = true;
+    private bool _phase2 = true;
+    private bool _phase3 = true;
+    private bool _phase4 = true;
+    
 
-    float counter = 0;
-    float counter2 = 0;
+    float _counter = 0;
+    float _counter2 = 0;
+
 
 
     // Use this for initialization
     void Start () {
-        
+        MakeSpawner();
     }
 	
+    
 	// Update is called once per frame
 	void Update () {
 
-        timeFloat = GameObject.Find("HUD").GetComponent<Timer>().timeFloat;
-
+        _timeFloat = GameObject.Find("HUD").GetComponent<Timer>().timeFloat;
+	    
         // Press R to restart
         if (Input.GetKeyDown(KeyCode.R)) {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
         // Level progression
-        if (phase1 && timeFloat >= 10.0f)
+        if (_phase1 && _timeFloat >= 10.0f)
         {
-            GameObject wokeSpawner = Instantiate(Spawner, transform.position + new Vector3(40,6,0), transform.rotation) as GameObject;
-            GameObject wokeSpawner2 = Instantiate(Spawner, transform.position + new Vector3(-40,6,0), transform.rotation) as GameObject;
-            phase1 = false;
+            MakeSpawner(); MakeSpawner();
+            _phase1 = false;
         }
-        if (phase2 && timeFloat >= 20.0f)
+        if (_phase2 && _timeFloat >= 20.0f)
         {
             GameObject wokeDeathMachine = Instantiate(DeathMachineMK1, transform.position, transform.rotation * Quaternion.Euler(180, 0, 0)) as GameObject;
-            phase2 = false;
+            _phase2 = false;
         }
 
-        if (timeFloat >= 35.0f && phase4) {
-            counter += 1 * Time.deltaTime;
-            if (counter >= 8) { 
+        if (_timeFloat >= 35.0f && _phase4) {
+            _counter += 1 * Time.deltaTime;
+            if (_counter >= 8) { 
                 GameObject wokeSpawner = Instantiate(Spawner, transform.position + new Vector3(40, 6, 0), transform.rotation) as GameObject;
-                GameObject wokeSpawner1 = Instantiate(Spawner, transform.position + new Vector3(-40, 6, 0), transform.rotation) as GameObject;
-                GameObject wokeSpawner2 = Instantiate(Spawner, transform.position + new Vector3(0, 6, 40), transform.rotation) as GameObject;
-                GameObject wokeSpawner3 = Instantiate(Spawner, transform.position + new Vector3(0, 6, -40), transform.rotation) as GameObject;
-                counter = 0;
+                MakeSpawner(); MakeSpawner(); MakeSpawner();
+                _counter = 0;
             }
-            if (phase3)
+            if (_phase3)
             {
                 GameObject wokeDeathMachine = Instantiate(DeathMachineMK1, transform.position, transform.rotation * Quaternion.Euler(180, 0, 0)) as GameObject;
                 Vector3 randomPos = new Vector3(Random.Range(-40, 40), 6, Random.Range(-40, 40));
-                GameObject wokeSpawner = Instantiate(Spawner, transform.position + randomPos, transform.rotation) as GameObject;
-                phase3 = false;
+                MakeSpawner();
+                _phase3 = false;
             }
         }
 
-        if (phase4 && timeFloat >= 50.0f)
+        if (_phase4 && _timeFloat >= 50.0f)
         {
             GameObject wokeDeathMachine = Instantiate(DeathMachineMK2, transform.position, transform.rotation) as GameObject;
-            GameObject wokeSpawner = Instantiate(Spawner, transform.position + new Vector3(0, 6, 40), transform.rotation) as GameObject;
-            GameObject wokeSpawner1 = Instantiate(Spawner, transform.position + new Vector3(0, 6, -40), transform.rotation) as GameObject;
-            phase4 = false;
+            MakeSpawner(); MakeSpawner();
+            _phase4 = false;
         }
 
         //Current endgame
-        if (timeFloat >= 60.0f)
+        if (_timeFloat >= 60.0f)
         {
-            counter +=  1 * Time.deltaTime;
-            if (counter >= 3)
+            _counter +=  1 * Time.deltaTime;
+            if (_counter >= 3)
             {
                 Vector3 randomPos = new Vector3(Random.Range(-40, 40), 6, Random.Range(-40, 40));
-                GameObject wokeSpawner = Instantiate(Spawner, transform.position + randomPos, transform.rotation) as GameObject;
-                counter = 0;
+                MakeSpawner();
+                _counter = 0;
             }
-            counter2 += 1 * Time.deltaTime;
-            if (counter2 >= 10)
+            _counter2 += 1 * Time.deltaTime;
+            if (_counter2 >= 10)
             {   
                 GameObject wokeDeathMachine = Instantiate(DeathMachineMK2, transform.position, transform.rotation) as GameObject;
-                counter2 = 0;
+                _counter2 = 0;
             }
         }
+    }
+
+    private void MakeSpawner()
+    {
+        var pos = Quaternion.AngleAxis(Random.Range(0, 360), Vector3.up) * Vector3.forward * SpawnerSpawnRadius;
+        pos.y = SpawnerSpawnBaseHeight;
+        Instantiate(Spawner).GetComponent<Spawner>().Init(pos);
     }
 }

@@ -41,8 +41,8 @@ public class GMSPlayer : MonoBehaviour
     public Transform playerView;                    // Camera
     public Transform user;                          // Player
     public float playerViewYOffset = 0.6f;          // The height at which the camera is bound to
-    public float xMouseSensitivity = 150f;
-    public float yMouseSensitivity = 150f;
+    public static float xMouseSensitivity = 150f;
+    public static float yMouseSensitivity = 150f;
     public float maxTilt = 3f;
     public float tiltSpeed = 0.2f;
     private float viewTilt = 0f;
