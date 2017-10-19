@@ -18,7 +18,7 @@ namespace Main.Scripts.BulletProperties
 		{
 			if (other.gameObject.CompareTag("Hitbox"))
 			{
-				other.gameObject.GetComponent<EntityHealth>().Health -= Damage;
+				other.gameObject.GetComponent<EntityHealth>().Damage(Damage);
 				FindObjectOfType<AudioManager>().Play("codHit");
 				//Destroy(gameObject);
 			}

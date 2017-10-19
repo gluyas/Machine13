@@ -17,7 +17,7 @@ namespace Main.Scripts.BulletProperties
 		{
 			if (other.gameObject.CompareTag("Hitbox"))
 			{
-				other.gameObject.GetComponent<EntityHealth>().Health -= Damage;
+				other.gameObject.GetComponent<EntityHealth>().Damage(Damage);
 				if (other.gameObject.GetComponent<EntityHealth>().Health >= 1)
 					Penetration = 0;
 				//Select Sounds
