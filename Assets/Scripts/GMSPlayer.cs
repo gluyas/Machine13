@@ -130,7 +130,7 @@ public class GMSPlayer : MonoBehaviour
         _controller = GetComponent<CharacterController>();
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
 
         // Get player position
