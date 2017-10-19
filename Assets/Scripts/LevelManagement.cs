@@ -1,4 +1,4 @@
-﻿using UnityEngine.SceneManagement;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class LevelManagement : MonoBehaviour {
