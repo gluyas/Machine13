@@ -74,6 +74,7 @@ public class Spawner : MonoBehaviour
 		GetComponentInChildren<EntityHealth>().OnDeath.AddListener(() =>		// ascend animation
 		{
 			time = DescentionTime;
+			GetComponent<AudioSource>().Play();
 			_updaters.Add(() =>
 			{
 				time = Mathf.Clamp(time - Time.deltaTime, 0, time);
